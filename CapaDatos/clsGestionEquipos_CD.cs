@@ -43,9 +43,13 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                using (SqlCommand cmd = new SqlCommand("sp_ListarEquiposPorUsuario", connection))
+                string queryListar = @"SELECT IDEquipo, NombreEquipo, Descripcion, FechaRegistro, FechaModificacion
+                                            FROM tbEquipo
+                                            WHERE IDCreador = @IDCreador AND Estado = 1
+                                            ORDER BY FechaRegistro DESC;";
+
+                using (SqlCommand cmd = new SqlCommand(queryListar, connection))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@IDCreador", IDCreador);
 
@@ -70,11 +74,17 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                using (SqlCommand cmd = new SqlCommand("sp_ModificarEquipo", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                string queryModificar = @"UPDATE tbEquipo
+                                           SET NombreEquipo = @NombreEquipo,
+                                               Descripcion = @Descripcion,
+                                               Estado = @Estado,
+                                               FechaModificacion = GETDATE()
+                                           WHERE IDEquipo = @IDEquipo AND IDCreador = @IDCreador;";
 
+                using (SqlCommand cmd = new SqlCommand(queryModificar, connection))
+                {
                     cmd.Parameters.AddWithValue("@IDEquipo", IDEquipo);
+                    cmd.Parameters.AddWithValue("@IDCreador", IDCreador);
                     cmd.Parameters.AddWithValue("@NombreEquipo", NombreEquipo);
                     cmd.Parameters.AddWithValue("@Descripcion", Descripcion);
                     cmd.Parameters.AddWithValue("@Estado", Estado);

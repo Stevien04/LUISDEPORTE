@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblFechaModificacion = new System.Windows.Forms.Label();
+            this.btnInvitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.imgWarningRed;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(109, 103);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -105,6 +106,7 @@
             this.btnEliminar.TabIndex = 66;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblFechaCreacion
             // 
@@ -146,11 +148,24 @@
             this.lblFechaModificacion.TabIndex = 69;
             this.lblFechaModificacion.Text = "FechaModificacion";
             // 
+            // btnInvitar
+            // 
+            this.btnInvitar.BackColor = System.Drawing.Color.LightGray;
+            this.btnInvitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInvitar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvitar.Location = new System.Drawing.Point(24, 135);
+            this.btnInvitar.Name = "btnInvitar";
+            this.btnInvitar.Size = new System.Drawing.Size(109, 30);
+            this.btnInvitar.TabIndex = 71;
+            this.btnInvitar.Text = "Invitar";
+            this.btnInvitar.UseVisualStyleBackColor = false;
+            // 
             // usEquipoItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(98)))), ((int)(((byte)(76)))));
+            this.Controls.Add(this.btnInvitar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFechaModificacion);
             this.Controls.Add(this.label1);
@@ -181,5 +196,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblFechaModificacion;
+        private System.Windows.Forms.Button btnInvitar;
     }
 }

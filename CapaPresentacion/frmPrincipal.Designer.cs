@@ -67,7 +67,7 @@
             this.pnlEquipo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlEquipo.Location = new System.Drawing.Point(0, 300);
             this.pnlEquipo.Name = "pnlEquipo";
-            this.pnlEquipo.Size = new System.Drawing.Size(219, 100);
+            this.pnlEquipo.Size = new System.Drawing.Size(219, 93);
             this.pnlEquipo.TabIndex = 1;
             // 
             // btnListarEquipo
