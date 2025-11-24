@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnRechazar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,11 +45,37 @@
             this.dataGridView1.Size = new System.Drawing.Size(611, 150);
             this.dataGridView1.TabIndex = 0;
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.BackColor = System.Drawing.Color.LightGray;
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(553, 229);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(122, 30);
+            this.btnAceptar.TabIndex = 67;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = false;
+            // 
+            // btnRechazar
+            // 
+            this.btnRechazar.BackColor = System.Drawing.Color.LightGray;
+            this.btnRechazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRechazar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRechazar.Location = new System.Drawing.Point(425, 229);
+            this.btnRechazar.Name = "btnRechazar";
+            this.btnRechazar.Size = new System.Drawing.Size(122, 30);
+            this.btnRechazar.TabIndex = 68;
+            this.btnRechazar.Text = "Rechazar";
+            this.btnRechazar.UseVisualStyleBackColor = false;
+            // 
             // frmNoticaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRechazar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmNoticaciones";
             this.Text = "frmNoticaciones";
@@ -60,5 +88,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnRechazar;
     }
 }

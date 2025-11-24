@@ -135,6 +135,7 @@ namespace CapaDatos
                                                        ie.FechaEnvio
                                                 FROM tbInvitacionEquipo ie
                                                 INNER JOIN tbEquipo e ON ie.IdEquipo = e.IDEquipo
+                                                INNER JOIN tbUsuario u ON ie.IdUsuarioCreador = u.IDUsuario
                                                 LEFT JOIN tbEstadoInvitacion ei ON ie.IdEstadoInvitacion = ei.IdEstadoInvitacion
                                                 WHERE ie.IdUsuarioInvitador = @IdUsuarioInvitado
                                                 ORDER BY ie.FechaEnvio DESC";
