@@ -39,5 +39,10 @@ namespace CapaNegocio
             return ObjGestionEquipos.mtdEliminarEquipoCD(IDEquipo);
         }
 
+        public DataTable mtdListarInvitacionesPorUsuarioCN(int idUsuarioInvitado)
+        {
+            return ObjGestionEquipos.mtdListarInvitacionesPorUsuarioCD(idUsuarioInvitado);
+        }
+
     }
 }

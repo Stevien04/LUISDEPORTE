@@ -39,6 +39,7 @@
             this.btnTorneo = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.btnNotificaciones = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             this.pnlEquipo.SuspendLayout();
             this.pnlTorneo.SuspendLayout();
@@ -48,6 +49,7 @@
             // 
             this.pnlSideMenu.AutoScroll = true;
             this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.pnlSideMenu.Controls.Add(this.btnNotificaciones);
             this.pnlSideMenu.Controls.Add(this.pnlEquipo);
             this.pnlSideMenu.Controls.Add(this.btnEquipo);
             this.pnlSideMenu.Controls.Add(this.pnlTorneo);
@@ -205,6 +207,23 @@
             this.pnlContenedor.Size = new System.Drawing.Size(715, 561);
             this.pnlContenedor.TabIndex = 1;
             // 
+            // btnNotificaciones
+            // 
+            this.btnNotificaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(223)))), ((int)(((byte)(130)))));
+            this.btnNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotificaciones.ForeColor = System.Drawing.Color.Black;
+            this.btnNotificaciones.Location = new System.Drawing.Point(0, 393);
+            this.btnNotificaciones.Name = "btnNotificaciones";
+            this.btnNotificaciones.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNotificaciones.Size = new System.Drawing.Size(219, 45);
+            this.btnNotificaciones.TabIndex = 3;
+            this.btnNotificaciones.Text = "Notificaciones";
+            this.btnNotificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotificaciones.UseVisualStyleBackColor = false;
+            this.btnNotificaciones.Click += new System.EventHandler(this.btnNotificaciones_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,5 +253,6 @@
         private System.Windows.Forms.Button btnCrearEquipo;
         private System.Windows.Forms.Button btnEquipo;
         private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Button btnNotificaciones;
     }
 }

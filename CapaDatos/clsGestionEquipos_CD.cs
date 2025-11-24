@@ -103,18 +103,55 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string queryInvitarUsuario = @"INSERT INTO tbInvitacionEquipo (IdEquipo, IdUsuarioInvitado, IdUsuarioEmisor)
-                                               VALUES (@IdEquipo, @IdUsuarioInvitado, @IdUsuarioEmisor);";
+                string queryInvitarUsuario = @"INSERT INTO tbInvitacionEquipo (IdEquipo, IdUsuarioInvitador, IdUsuarioCreador, Estado, FechaEnvio)
+                                               VALUES (@IdEquipo, @IdUsuarioInvitado, @IdUsuarioEmisor, @Estado, GETDATE());";
 
                 using (SqlCommand cmdInvitarUsuario = new SqlCommand(queryInvitarUsuario, connection))
                 {
                     cmdInvitarUsuario.Parameters.AddWithValue("@IdEquipo", IdEquipo);
                     cmdInvitarUsuario.Parameters.AddWithValue("@IdUsuarioInvitado", IdUsuarioInvitado);
                     cmdInvitarUsuario.Parameters.AddWithValue("@IdUsuarioEmisor", IdUsuarioEmisor);
+                    cmdInvitarUsuario.Parameters.AddWithValue("@Estado", "Pendiente");
 
                     cmdInvitarUsuario.ExecuteNonQuery();
                 }
             }
+        }
+
+        public DataTable mtdListarInvitacionesPorUsuarioCD(int idUsuarioInvitado)
+        {
+            DataTable tbInvitaciones = new DataTable();
+
+            using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
+            {
+                connection.Open();
+
+                string queryListarInvitaciones = @"SELECT ie.IdInvitacion,
+                                                       e.NombreEquipo,
+                                                       u.NombreUsuario AS UsuarioEmisor,
+                                                       ie.Estado,
+                                                       ie.FechaEnvio
+                                                FROM tbInvitacionEquipo ie
+                                                INNER JOIN tbEquipo e ON ie.IdEquipo = e.IDEquipo
+                                                INNER JOIN tbUsuario u ON ie.IdUsuarioCreador = u.IDUsuario
+                                                WHERE ie.IdUsuarioInvitador = @IdUsuarioInvitado
+                                                ORDER BY ie.FechaEnvio DESC";
+
+                using (SqlCommand cmd = new SqlCommand(queryListarInvitaciones, connection))
+                {
+                    cmd.Parameters.AddWithValue("@IdUsuarioInvitado", idUsuarioInvitado);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            tbInvitaciones.Load(reader);
+                        }
+                    }
+                }
+            }
+
+            return tbInvitaciones;
         }
 
         public bool mtdEliminarEquipoCD(int IDEquipo)

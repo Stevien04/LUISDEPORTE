@@ -16,12 +16,11 @@ namespace CapaPresentacion
         private clsUsuario_CN ObjUsuario = new clsUsuario_CN();
         private clsGestionEquipos_CN ObjGestionEquipos = new clsGestionEquipos_CN();
 
-        int IDUsuarioActual = clsSesionUsuario_CN.idUsuario;
-        
+        private readonly int _idUsuarioActual = clsSesionUsuario_CN.idUsuario;
+
         //VARIABLE GLOBAL PARA USARLA EN TODO EL FORMULARIO
         private int IDEquipo_;
         private int IDUsuarioInvitado;
-        private int IdUsuarioActual = clsSesionUsuario_CN.idUsuario;
 
         //INICIAMOS EL FORMULARIO PASANDO EL VALOR DEL IDEQUIPO
         public frmInvitarUsuarioEquipo(string IDEquipo)
@@ -40,25 +39,37 @@ namespace CapaPresentacion
         {
             string NombreUsuario = txtNomUsuario.Text;
             clsUsuario_CN ObjUsuario = new clsUsuario_CN();
-            dgvUsuario.DataSource = ObjUsuario.mtdBuscarUsuariosActivosCN(NombreUsuario, IDUsuarioActual);
+            dgvUsuario.DataSource = ObjUsuario.mtdBuscarUsuariosActivosCN(NombreUsuario, _idUsuarioActual);
             dgvUsuario.Columns["IDUsuario"].Visible = false;
         }
 
         private void dgvUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in dgvUsuario.Rows)
+            if (e.RowIndex < 0 || e.RowIndex >= dgvUsuario.Rows.Count)
+                return;
+
+            DataGridViewRow row = dgvUsuario.Rows[e.RowIndex];
+
+            if (row.Cells["IDUsuario"]?.Value != null)
             {
-                if (row.Index == e.RowIndex)
-                {
-                    txtUsuarioInvitado.Text = row.Cells["IDUsuario"].Value.ToString();
-                    IDUsuarioInvitado = Convert.ToInt32(row.Cells["IDUsuario"].Value.ToString());
-                }
+                txtUsuarioInvitado.Text = row.Cells["IDUsuario"].Value.ToString();
+                IDUsuarioInvitado = Convert.ToInt32(row.Cells["IDUsuario"].Value);
             }
         }
 
         private void btnInvitar_Click(object sender, EventArgs e)
         {
-            ObjGestionEquipos.mtdInvitarUsuarioEquipo_CN(IDEquipo_, IDUsuarioInvitado, IdUsuarioActual);
+            if (IDUsuarioInvitado == 0)
+            {
+                MessageBox.Show("Seleccione un usuario de la lista antes de enviar la invitación.",
+                    "Usuario requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ObjGestionEquipos.mtdInvitarUsuarioEquipo_CN(IDEquipo_, IDUsuarioInvitado, _idUsuarioActual);
+
+            MessageBox.Show("Invitación enviada correctamente.", "Invitación", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
     }
 }

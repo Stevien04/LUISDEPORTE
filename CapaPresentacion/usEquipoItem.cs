@@ -14,6 +14,7 @@ namespace CapaPresentacion
     {
         public event EventHandler OnModificarClick;
         public event EventHandler OnEliminarClick;
+        public event EventHandler OnInvitarClick;
 
         public usEquipoItem()
         {
@@ -57,5 +58,11 @@ namespace CapaPresentacion
         }
 
         public int IDEquipo { get; set; }
+
+        private void btnInvitar_Click(object sender, EventArgs e)
+        {
+            if (OnInvitarClick != null)
+                OnInvitarClick(this, EventArgs.Empty);
+        }
     }
 }

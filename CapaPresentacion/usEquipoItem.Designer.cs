@@ -159,6 +159,7 @@
             this.btnInvitar.TabIndex = 71;
             this.btnInvitar.Text = "Invitar";
             this.btnInvitar.UseVisualStyleBackColor = false;
+            this.btnInvitar.Click += new System.EventHandler(this.btnInvitar_Click);
             // 
             // usEquipoItem
             // 

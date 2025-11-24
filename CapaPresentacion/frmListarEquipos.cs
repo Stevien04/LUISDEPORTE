@@ -110,6 +110,7 @@ namespace CapaPresentacion
 
                 item.OnModificarClick += Item_OnModificarClick;
                 item.OnEliminarClick += Item_OnEliminarClick;
+                item.OnInvitarClick += Item_OnInvitarClick;
 
                 flpListaEquipos.Controls.Add(item);
             }
@@ -196,7 +197,20 @@ namespace CapaPresentacion
                 MessageBox.Show("No se pudo eliminar el equipo.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
 
+        }
+        private void Item_OnInvitarClick(object sender, EventArgs e)
+        {
+            if (sender is usEquipoItem item)
+            {
+                using (frmInvitarUsuarioEquipo frmInvitacion = new frmInvitarUsuarioEquipo(item.IDEquipo.ToString()))
+                {
+                    frmInvitacion.StartPosition = FormStartPosition.CenterParent;
+                    frmInvitacion.ShowIcon = false;
+                    frmInvitacion.ShowInTaskbar = false;
+                    frmInvitacion.ShowDialog(this);
+                }
+            }
+        }
     }
 }
