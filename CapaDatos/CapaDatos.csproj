@@ -47,6 +47,7 @@
     <Compile Include="clsCrearCuenta_CD.cs" />
     <Compile Include="clsCredenciales_CD.cs" />
     <Compile Include="clsGestionEquipos_CD.cs" />
+    <Compile Include="clsGestionTorneos_CD.cs" />
     <Compile Include="clsUsuario_CD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

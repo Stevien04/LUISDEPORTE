@@ -52,6 +52,12 @@
     <Compile Include="frmCrearTorneo.Designer.cs">
       <DependentUpon>frmCrearTorneo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInvitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInvitar.Designer.cs">
+      <DependentUpon>frmInvitar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="frmCrearTorneo.resx">
       <DependentUpon>frmCrearTorneo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInvitar.resx">
+      <DependentUpon>frmInvitar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarEquipos.resx">
       <DependentUpon>frmListarEquipos.cs</DependentUpon>

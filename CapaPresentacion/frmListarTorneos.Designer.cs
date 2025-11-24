@@ -50,6 +50,7 @@
             this.Controls.Add(this.flpListaTorneo);
             this.Name = "frmListarTorneos";
             this.Text = "frmListarTorneos";
+            this.Load += new System.EventHandler(this.frmListarTorneos_Load);
             this.ResumeLayout(false);
 
         }

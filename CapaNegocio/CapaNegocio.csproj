@@ -44,6 +44,7 @@
     <Compile Include="clsCrearCuenta_CN.cs" />
     <Compile Include="clsCredenciales_CN.cs" />
     <Compile Include="clsGestionEquipos_CN.cs" />
+    <Compile Include="clsGestionTorneos_CN.cs" />
     <Compile Include="clsSesionUsuario_CN.cs" />
     <Compile Include="clsUsuario_CN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

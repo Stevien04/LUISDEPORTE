@@ -30,9 +30,9 @@
         {
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.btnCrearEquipo = new System.Windows.Forms.Button();
+            this.btnCrearTorneo = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtNombreEquipo = new System.Windows.Forms.TextBox();
+            this.txtNombreTorneo = new System.Windows.Forms.TextBox();
             this.lblNombreEquipo = new System.Windows.Forms.Label();
             this.txtCreador = new System.Windows.Forms.TextBox();
             this.lblCreador = new System.Windows.Forms.Label();
@@ -57,21 +57,22 @@
             this.lblDescripcion.ForeColor = System.Drawing.Color.Black;
             this.lblDescripcion.Location = new System.Drawing.Point(30, 227);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(186, 21);
+            this.lblDescripcion.Size = new System.Drawing.Size(185, 21);
             this.lblDescripcion.TabIndex = 81;
-            this.lblDescripcion.Text = "Descripcion del Equipo";
+            this.lblDescripcion.Text = "Descripcion del Torneo";
             // 
-            // btnCrearEquipo
+            // btnCrearTorneo
             // 
-            this.btnCrearEquipo.BackColor = System.Drawing.Color.LightGray;
-            this.btnCrearEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearEquipo.Location = new System.Drawing.Point(236, 353);
-            this.btnCrearEquipo.Name = "btnCrearEquipo";
-            this.btnCrearEquipo.Size = new System.Drawing.Size(202, 45);
-            this.btnCrearEquipo.TabIndex = 79;
-            this.btnCrearEquipo.Text = "Crear Equipo";
-            this.btnCrearEquipo.UseVisualStyleBackColor = false;
+            this.btnCrearTorneo.BackColor = System.Drawing.Color.LightGray;
+            this.btnCrearTorneo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearTorneo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearTorneo.Location = new System.Drawing.Point(236, 353);
+            this.btnCrearTorneo.Name = "btnCrearTorneo";
+            this.btnCrearTorneo.Size = new System.Drawing.Size(202, 45);
+            this.btnCrearTorneo.TabIndex = 79;
+            this.btnCrearTorneo.Text = "Crear Torneo";
+            this.btnCrearTorneo.UseVisualStyleBackColor = false;
+            this.btnCrearTorneo.Click += new System.EventHandler(this.btnCrearTorneo_Click);
             // 
             // lblTitulo
             // 
@@ -80,20 +81,20 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.Black;
             this.lblTitulo.Location = new System.Drawing.Point(230, 47);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(222, 36);
+            this.lblTitulo.Size = new System.Drawing.Size(229, 36);
             this.lblTitulo.TabIndex = 83;
-            this.lblTitulo.Text = "CREAR EQUIPO";
+            this.lblTitulo.Text = "CREAR TORNEO";
             // 
-            // txtNombreEquipo
+            // txtNombreTorneo
             // 
-            this.txtNombreEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
-            this.txtNombreEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombreEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEquipo.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNombreEquipo.Location = new System.Drawing.Point(236, 182);
-            this.txtNombreEquipo.Name = "txtNombreEquipo";
-            this.txtNombreEquipo.Size = new System.Drawing.Size(226, 27);
-            this.txtNombreEquipo.TabIndex = 77;
+            this.txtNombreTorneo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.txtNombreTorneo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreTorneo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreTorneo.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNombreTorneo.Location = new System.Drawing.Point(236, 182);
+            this.txtNombreTorneo.Name = "txtNombreTorneo";
+            this.txtNombreTorneo.Size = new System.Drawing.Size(226, 27);
+            this.txtNombreTorneo.TabIndex = 77;
             // 
             // lblNombreEquipo
             // 
@@ -102,9 +103,9 @@
             this.lblNombreEquipo.ForeColor = System.Drawing.Color.Black;
             this.lblNombreEquipo.Location = new System.Drawing.Point(57, 185);
             this.lblNombreEquipo.Name = "lblNombreEquipo";
-            this.lblNombreEquipo.Size = new System.Drawing.Size(159, 21);
+            this.lblNombreEquipo.Size = new System.Drawing.Size(158, 21);
             this.lblNombreEquipo.TabIndex = 76;
-            this.lblNombreEquipo.Text = "Nombre del Equipo";
+            this.lblNombreEquipo.Text = "Nombre del Torneo";
             // 
             // txtCreador
             // 
@@ -137,14 +138,15 @@
             this.ClientSize = new System.Drawing.Size(699, 522);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDescripcion);
-            this.Controls.Add(this.btnCrearEquipo);
+            this.Controls.Add(this.btnCrearTorneo);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.txtNombreEquipo);
+            this.Controls.Add(this.txtNombreTorneo);
             this.Controls.Add(this.lblNombreEquipo);
             this.Controls.Add(this.txtCreador);
             this.Controls.Add(this.lblCreador);
             this.Name = "frmCrearTorneo";
             this.Text = "frmCrearTorneo";
+            this.Load += new System.EventHandler(this.frmCrearTorneo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,9 +156,9 @@
 
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.Button btnCrearEquipo;
+        private System.Windows.Forms.Button btnCrearTorneo;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.TextBox txtNombreEquipo;
+        private System.Windows.Forms.TextBox txtNombreTorneo;
         private System.Windows.Forms.Label lblNombreEquipo;
         private System.Windows.Forms.TextBox txtCreador;
         private System.Windows.Forms.Label lblCreador;

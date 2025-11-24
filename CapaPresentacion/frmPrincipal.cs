@@ -57,7 +57,9 @@ namespace CapaPresentacion
 
         private void btnCrearTorneo_Click(object sender, EventArgs e)
         {
-            
+            mtdAbrirFormulario(new frmCrearTorneo());
+
+            mtdHideSubMenu();
         }
 
         private Form FormularioActivo = null;
@@ -81,7 +83,9 @@ namespace CapaPresentacion
 
         private void btnListarTorneos_Click(object sender, EventArgs e)
         {
-            
+            mtdAbrirFormulario(new frmListarTorneos());
+
+            mtdHideSubMenu();
         }
 
         private void btnCrearEquipo_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,209 @@ namespace CapaPresentacion
 {
     public partial class frmListarTorneos : Form
     {
+
+        private clsGestionTorneos_CN ObjGestionTorneos = new clsGestionTorneos_CN();
+        private readonly int _idUsuarioActual = clsSesionUsuario_CN.idUsuario;
+
         public frmListarTorneos()
         {
             InitializeComponent();
+        }
+
+        private string PedirTexto(string titulo, string mensaje, string valorPredeterminado)
+        {
+            using (Form prompt = new Form())
+            {
+                prompt.Width = 420;
+                prompt.Height = 170;
+                prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
+                prompt.Text = titulo;
+                prompt.StartPosition = FormStartPosition.CenterParent;
+                prompt.MaximizeBox = false;
+                prompt.MinimizeBox = false;
+                prompt.ShowInTaskbar = false;
+
+                Label lblMensaje = new Label()
+                {
+                    Left = 15,
+                    Top = 15,
+                    Width = 370,
+                    Text = mensaje
+                };
+
+                TextBox txtEntrada = new TextBox()
+                {
+                    Left = 15,
+                    Top = 45,
+                    Width = 370,
+                    Text = valorPredeterminado
+                };
+
+                Button btnAceptar = new Button()
+                {
+                    Text = "Aceptar",
+                    DialogResult = DialogResult.OK,
+                    Left = 200,
+                    Width = 85,
+                    Top = 85
+                };
+
+                Button btnCancelar = new Button()
+                {
+                    Text = "Cancelar",
+                    DialogResult = DialogResult.Cancel,
+                    Left = 295,
+                    Width = 85,
+                    Top = 85
+                };
+
+                prompt.Controls.Add(lblMensaje);
+                prompt.Controls.Add(txtEntrada);
+                prompt.Controls.Add(btnAceptar);
+                prompt.Controls.Add(btnCancelar);
+                prompt.AcceptButton = btnAceptar;
+                prompt.CancelButton = btnCancelar;
+
+                return prompt.ShowDialog(this) == DialogResult.OK
+                    ? txtEntrada.Text
+                    : null;
+            }
+        }
+
+        private void mtdCargarTorneos()
+        {
+            flpListaTorneo.Controls.Clear();
+
+            DataTable tabla = ObjGestionTorneos.mtdListarTorneosPorCreadorCN(_idUsuarioActual);
+
+            foreach (DataRow fila in tabla.Rows)
+            {
+                usTorneoItem item = new usTorneoItem();
+
+                item.IDTorneo = Convert.ToInt32(fila["IdTorneos"]);
+                item.NombreTorneo = fila["NombreTorneo"].ToString();
+                item.Descripcion = fila["Descripcion"].ToString();
+
+                if (fila["FechaCreacion"] != DBNull.Value)
+                    item.FechaCreacion = Convert.ToDateTime(fila["FechaCreacion"]).ToString("dd/MM/yyyy HH:mm");
+                else
+                    item.FechaCreacion = "—";
+
+                item.FechaModificacion = "—";
+
+                item.OnModificarClick += Item_OnModificarClick;
+                item.OnEliminarClick += Item_OnEliminarClick;
+                item.OnInvitarClick += Item_OnInvitarClick;
+                item.OnIntegrantesClick += Item_OnIntegrantesClick;
+
+                flpListaTorneo.Controls.Add(item);
+            }
+        }
+
+        private void frmListarTorneos_Load(object sender, EventArgs e)
+        {
+            mtdCargarTorneos();
+        }
+
+        private void Item_OnModificarClick(object sender, EventArgs e)
+        {
+            if (sender is usTorneoItem item)
+            {
+                string nuevoNombre = PedirTexto(
+                    "Modificar torneo",
+                    "Ingrese el nuevo nombre del torneo:",
+                    item.NombreTorneo);
+
+                if (string.IsNullOrWhiteSpace(nuevoNombre))
+                    return;
+
+                string nuevaDescripcion = PedirTexto(
+                    "Modificar torneo",
+                    "Ingrese la nueva descripción del torneo:",
+                    item.Descripcion);
+
+                if (nuevaDescripcion == null)
+                    return;
+
+                if (string.IsNullOrWhiteSpace(nuevaDescripcion))
+                    nuevaDescripcion = item.Descripcion;
+
+                bool actualizado = ObjGestionTorneos.mtdModificarTorneoCN(
+                    item.IDTorneo,
+                    _idUsuarioActual,
+                    nuevoNombre,
+                    nuevaDescripcion);
+
+                if (actualizado)
+                {
+                    MessageBox.Show("El torneo se modificó correctamente.", "Torneo actualizado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mtdCargarTorneos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar el torneo.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Item_OnEliminarClick(object sender, EventArgs e)
+        {
+            if (sender is usTorneoItem item)
+            {
+                DialogResult respuesta = MessageBox.Show(
+                    $"¿Desea eliminar el torneo \"{item.NombreTorneo}\"?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (respuesta != DialogResult.Yes)
+                    return;
+
+                bool eliminado = ObjGestionTorneos.mtdEliminarTorneoCN(item.IDTorneo, _idUsuarioActual);
+
+                if (eliminado)
+                {
+                    MessageBox.Show("El torneo se eliminó correctamente.", "Torneo eliminado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mtdCargarTorneos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el torneo.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Item_OnInvitarClick(object sender, EventArgs e)
+        {
+            if (sender is usTorneoItem item)
+            {
+                using (frmInvitarEquipoTorneo frmInvitar = new frmInvitarEquipoTorneo(item.IDTorneo, item.NombreTorneo))
+                {
+                    frmInvitar.StartPosition = FormStartPosition.CenterParent;
+                    frmInvitar.ShowIcon = false;
+                    frmInvitar.ShowInTaskbar = false;
+                    frmInvitar.ShowDialog(this);
+                }
+            }
+        }
+
+        private void Item_OnIntegrantesClick(object sender, EventArgs e)
+        {
+            if (sender is usTorneoItem item)
+            {
+                using (frmInvitarEquipoTorneo frmInvitar = new frmInvitarEquipoTorneo(item.IDTorneo, item.NombreTorneo))
+                {
+                    frmInvitar.StartPosition = FormStartPosition.CenterParent;
+                    frmInvitar.ShowIcon = false;
+                    frmInvitar.ShowInTaskbar = false;
+                    frmInvitar.SoloLectura = true;
+                    frmInvitar.ShowDialog(this);
+                }
+            }
         }
     }
 }
