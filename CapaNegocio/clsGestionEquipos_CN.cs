@@ -34,5 +34,10 @@ namespace CapaNegocio
             return ObjGestionEquipos.mtdModificarEquipoCD(IDEquipo, IDCreador, NombreEquipo, Descripcion,Estado);
         }
 
+        public bool mtdEliminarEquipoCN(int IDEquipo)
+        {
+            return ObjGestionEquipos.mtdEliminarEquipoCD(IDEquipo);
+        }
+
     }
 }

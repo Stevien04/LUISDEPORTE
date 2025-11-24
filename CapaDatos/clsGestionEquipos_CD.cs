@@ -106,5 +106,29 @@ namespace CapaDatos
                 }
             }
         }
+
+        public bool mtdEliminarEquipoCD(int IDEquipo)
+        {
+            bool respuesta = false;
+
+            using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
+            {
+                connection.Open();
+
+                string queryEliminar = @"UPDATE tbEquipo
+                                          SET Estado = 0,
+                                              FechaModificacion = GETDATE()
+                                          WHERE IDEquipo = @IDEquipo;";
+
+                using (SqlCommand cmd = new SqlCommand(queryEliminar, connection))
+                {
+                    cmd.Parameters.AddWithValue("@IDEquipo", IDEquipo);
+
+                    respuesta = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+
+            return respuesta;
+        }
     }
 }

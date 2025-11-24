@@ -38,8 +38,6 @@
             this.lblErrorUsuario = new System.Windows.Forms.Label();
             this.ptbMinimizar = new System.Windows.Forms.PictureBox();
             this.ptbCerrar = new System.Windows.Forms.PictureBox();
-            this.lineControl2 = new LineControl();
-            this.lineControl1 = new LineControl();
             ((System.ComponentModel.ISupportInitialize)(this.ptbMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCerrar)).BeginInit();
             this.SuspendLayout();
@@ -171,24 +169,6 @@
             this.ptbCerrar.TabStop = false;
             this.ptbCerrar.Click += new System.EventHandler(this.ptbCerrar_Click);
             // 
-            // lineControl2
-            // 
-            this.lineControl2.LineColor = System.Drawing.Color.Black;
-            this.lineControl2.Location = new System.Drawing.Point(316, 148);
-            this.lineControl2.Name = "lineControl2";
-            this.lineControl2.Size = new System.Drawing.Size(372, 10);
-            this.lineControl2.TabIndex = 4;
-            this.lineControl2.Text = "lineControl2";
-            // 
-            // lineControl1
-            // 
-            this.lineControl1.LineColor = System.Drawing.Color.Black;
-            this.lineControl1.Location = new System.Drawing.Point(316, 80);
-            this.lineControl1.Name = "lineControl1";
-            this.lineControl1.Size = new System.Drawing.Size(372, 10);
-            this.lineControl1.TabIndex = 2;
-            this.lineControl1.Text = "lineControl1";
-            // 
             // frmInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,9 +182,7 @@
             this.Controls.Add(this.lnkCrearCuenta);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lineControl2);
             this.Controls.Add(this.txtContraseña);
-            this.Controls.Add(this.lineControl1);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -223,8 +201,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtUsuario;
-        private LineControl lineControl1;
-        private LineControl lineControl2;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnIngresar;

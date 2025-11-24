@@ -13,6 +13,7 @@ namespace CapaPresentacion
     public partial class usEquipoItem : UserControl
     {
         public event EventHandler OnModificarClick;
+        public event EventHandler OnEliminarClick;
 
         public usEquipoItem()
         {
@@ -47,6 +48,12 @@ namespace CapaPresentacion
         {
             if (OnModificarClick != null)
                 OnModificarClick(this, EventArgs.Empty);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (OnEliminarClick != null)
+                OnEliminarClick(this, EventArgs.Empty);
         }
 
         public int IDEquipo { get; set; }

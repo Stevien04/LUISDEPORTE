@@ -46,9 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControPersonalizados\LineControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="frmListarEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
