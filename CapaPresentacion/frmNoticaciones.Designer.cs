@@ -42,8 +42,11 @@
             this.dataGridView1.Location = new System.Drawing.Point(64, 73);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Size = new System.Drawing.Size(611, 150);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // btnAceptar
             // 
@@ -56,6 +59,7 @@
             this.btnAceptar.TabIndex = 67;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
             // 
             // btnRechazar
             // 
@@ -68,6 +72,7 @@
             this.btnRechazar.TabIndex = 68;
             this.btnRechazar.Text = "Rechazar";
             this.btnRechazar.UseVisualStyleBackColor = false;
+            this.btnRechazar.Click += new System.EventHandler(this.btnRechazar_Click_1);
             // 
             // frmNoticaciones
             // 

@@ -44,5 +44,10 @@ namespace CapaNegocio
             return ObjGestionEquipos.mtdListarInvitacionesPorUsuarioCD(idUsuarioInvitado);
         }
 
+        public bool mtdResponderInvitacionCN(int idInvitacion, string nuevoEstado)
+        {
+            return ObjGestionEquipos.mtdResponderInvitacionEquipoCD(idInvitacion, nuevoEstado);
+        }
+
     }
 }

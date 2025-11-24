@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblFechaModificacion = new System.Windows.Forms.Label();
             this.btnInvitar = new System.Windows.Forms.Button();
+            this.btnIntegrantes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -161,11 +162,25 @@
             this.btnInvitar.UseVisualStyleBackColor = false;
             this.btnInvitar.Click += new System.EventHandler(this.btnInvitar_Click);
             // 
+            // btnIntegrantes
+            // 
+            this.btnIntegrantes.BackColor = System.Drawing.Color.LightGray;
+            this.btnIntegrantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIntegrantes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIntegrantes.Location = new System.Drawing.Point(24, 171);
+            this.btnIntegrantes.Name = "btnIntegrantes";
+            this.btnIntegrantes.Size = new System.Drawing.Size(153, 30);
+            this.btnIntegrantes.TabIndex = 72;
+            this.btnIntegrantes.Text = "Ver Integrantes";
+            this.btnIntegrantes.UseVisualStyleBackColor = false;
+            this.btnIntegrantes.Click += new System.EventHandler(this.btnIntegrantes_Click);
+            // 
             // usEquipoItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(98)))), ((int)(((byte)(76)))));
+            this.Controls.Add(this.btnIntegrantes);
             this.Controls.Add(this.btnInvitar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFechaModificacion);
@@ -177,7 +192,7 @@
             this.Controls.Add(this.lblNombreEquipo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "usEquipoItem";
-            this.Size = new System.Drawing.Size(708, 179);
+            this.Size = new System.Drawing.Size(708, 223);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -198,5 +213,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblFechaModificacion;
         private System.Windows.Forms.Button btnInvitar;
+        private System.Windows.Forms.Button btnIntegrantes;
     }
 }

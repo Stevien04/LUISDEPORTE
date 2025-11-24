@@ -52,6 +52,12 @@
     <Compile Include="frmListarEquipos.Designer.cs">
       <DependentUpon>frmListarEquipos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListarIntegrantesEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarIntegrantesEquipo.Designer.cs">
+      <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNoticaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="frmListarEquipos.resx">
       <DependentUpon>frmListarEquipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarIntegrantesEquipo.resx">
+      <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNoticaciones.resx">
       <DependentUpon>frmNoticaciones.cs</DependentUpon>

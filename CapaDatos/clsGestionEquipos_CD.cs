@@ -177,5 +177,85 @@ namespace CapaDatos
 
             return respuesta;
         }
+
+        public bool mtdResponderInvitacionEquipoCD(int idInvitacion, string nuevoEstado)
+        {
+            bool respuesta = false;
+
+            using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string queryActualizarEstado = @"UPDATE tbInvitacionEquipo
+                                                          SET IdEstadoInvitacion = (SELECT TOP 1 IdEstadoInvitacion FROM tbEstadoInvitacion WHERE NombreEstado = @NombreEstado),
+                                                              FechaRespuesta = GETDATE()
+                                                          WHERE IdInvitacion = @IdInvitacion;";
+
+                        using (SqlCommand cmdActualizar = new SqlCommand(queryActualizarEstado, connection, transaction))
+                        {
+                            cmdActualizar.Parameters.AddWithValue("@IdInvitacion", idInvitacion);
+                            cmdActualizar.Parameters.AddWithValue("@NombreEstado", nuevoEstado);
+
+                            respuesta = cmdActualizar.ExecuteNonQuery() > 0;
+                        }
+
+                        if (respuesta && nuevoEstado.Equals("Aceptada", StringComparison.OrdinalIgnoreCase))
+                        {
+                            string queryObtenerDatos = @"SELECT IdEquipo, IdUsuarioInvitador
+                                                         FROM tbInvitacionEquipo
+                                                         WHERE IdInvitacion = @IdInvitacion";
+
+                            int idEquipo = 0;
+                            int idUsuarioInvitado = 0;
+
+                            using (SqlCommand cmdDatos = new SqlCommand(queryObtenerDatos, connection, transaction))
+                            {
+                                cmdDatos.Parameters.AddWithValue("@IdInvitacion", idInvitacion);
+
+                                using (SqlDataReader reader = cmdDatos.ExecuteReader())
+                                {
+                                    if (reader.Read())
+                                    {
+                                        idEquipo = Convert.ToInt32(reader["IdEquipo"]);
+                                        idUsuarioInvitado = Convert.ToInt32(reader["IdUsuarioInvitador"]);
+                                    }
+                                }
+                            }
+
+                            if (idEquipo != 0 && idUsuarioInvitado != 0)
+                            {
+                                string queryRegistrarMiembro = @"IF NOT EXISTS (SELECT 1 FROM tbEquipoMiembros WHERE IdEquipo = @IdEquipo AND IdUsuarioMiembro = @IdUsuarioMiembro)
+                                                                BEGIN
+                                                                    INSERT INTO tbEquipoMiembros (IdEquipo, IdUsuarioMiembro, Rol, FechaUnion)
+                                                                    VALUES (@IdEquipo, @IdUsuarioMiembro, @Rol, GETDATE());
+                                                                END";
+
+                                using (SqlCommand cmdMiembro = new SqlCommand(queryRegistrarMiembro, connection, transaction))
+                                {
+                                    cmdMiembro.Parameters.AddWithValue("@IdEquipo", idEquipo);
+                                    cmdMiembro.Parameters.AddWithValue("@IdUsuarioMiembro", idUsuarioInvitado);
+                                    cmdMiembro.Parameters.AddWithValue("@Rol", "Miembro");
+
+                                    cmdMiembro.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            }
+
+            return respuesta;
+        }
     }
 }

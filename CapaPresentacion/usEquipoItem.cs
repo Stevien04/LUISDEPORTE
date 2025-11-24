@@ -64,5 +64,10 @@ namespace CapaPresentacion
             if (OnInvitarClick != null)
                 OnInvitarClick(this, EventArgs.Empty);
         }
+
+        private void btnIntegrantes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
