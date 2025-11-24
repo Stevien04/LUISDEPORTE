@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCrearTorneo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCrearTorneo.Designer.cs">
+      <DependentUpon>frmCrearTorneo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="frmListarIntegrantesEquipo.Designer.cs">
       <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarTorneos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarTorneos.Designer.cs">
+      <DependentUpon>frmListarTorneos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNoticaciones.cs">
       <SubType>Form</SubType>
@@ -102,11 +114,23 @@
     <Compile Include="usEquipoItem.Designer.cs">
       <DependentUpon>usEquipoItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="usTorneoItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usTorneoItem.Designer.cs">
+      <DependentUpon>usTorneoItem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmCrearTorneo.resx">
+      <DependentUpon>frmCrearTorneo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListarEquipos.resx">
       <DependentUpon>frmListarEquipos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarIntegrantesEquipo.resx">
       <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarTorneos.resx">
+      <DependentUpon>frmListarTorneos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNoticaciones.resx">
       <DependentUpon>frmNoticaciones.cs</DependentUpon>
@@ -138,6 +162,9 @@
     </Compile>
     <EmbeddedResource Include="usEquipoItem.resx">
       <DependentUpon>usEquipoItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usTorneoItem.resx">
+      <DependentUpon>usTorneoItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

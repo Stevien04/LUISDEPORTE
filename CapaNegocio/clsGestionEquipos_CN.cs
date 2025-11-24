@@ -49,5 +49,10 @@ namespace CapaNegocio
             return ObjGestionEquipos.mtdResponderInvitacionEquipoCD(idInvitacion, nuevoEstado);
         }
 
+        public DataTable mtdListarIntegrantesEquipoCN(int idEquipo)
+        {
+            return ObjGestionEquipos.mtdListarIntegrantesEquipoCD(idEquipo);
+        }
+
     }
 }

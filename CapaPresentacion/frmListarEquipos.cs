@@ -111,6 +111,7 @@ namespace CapaPresentacion
                 item.OnModificarClick += Item_OnModificarClick;
                 item.OnEliminarClick += Item_OnEliminarClick;
                 item.OnInvitarClick += Item_OnInvitarClick;
+                item.OnIntegrantesClick += Item_OnIntegrantesClick;
 
                 flpListaEquipos.Controls.Add(item);
             }
@@ -209,6 +210,20 @@ namespace CapaPresentacion
                     frmInvitacion.ShowIcon = false;
                     frmInvitacion.ShowInTaskbar = false;
                     frmInvitacion.ShowDialog(this);
+                }
+            }
+        }
+
+        private void Item_OnIntegrantesClick(object sender, EventArgs e)
+        {
+            if (sender is usEquipoItem item)
+            {
+                using (frmListarIntegrantesEquipo frmIntegrantes = new frmListarIntegrantesEquipo(item.IDEquipo))
+                {
+                    frmIntegrantes.StartPosition = FormStartPosition.CenterParent;
+                    frmIntegrantes.ShowIcon = false;
+                    frmIntegrantes.ShowInTaskbar = false;
+                    frmIntegrantes.ShowDialog(this);
                 }
             }
         }

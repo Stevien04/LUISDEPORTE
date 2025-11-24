@@ -257,5 +257,40 @@ namespace CapaDatos
 
             return respuesta;
         }
+
+        public DataTable mtdListarIntegrantesEquipoCD(int idEquipo)
+        {
+            DataTable tbIntegrantes = new DataTable();
+
+            using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
+            {
+                connection.Open();
+
+                string queryListarIntegrantes = @"SELECT em.IdUsuarioMiembro AS IdUsuario,
+                                                           u.NombreUsuario,
+                                                           p.Nombres,
+                                                           p.ApellidoPaterno,
+                                                           p.ApellidoMaterno,
+                                                           em.Rol,
+                                                           em.FechaUnion
+                                                    FROM tbEquipoMiembros em
+                                                    INNER JOIN tbUsuario u ON em.IdUsuarioMiembro = u.IDUsuario
+                                                    INNER JOIN tbPersona p ON u.IDPersona = p.IDPersona
+                                                    WHERE em.IdEquipo = @IdEquipo
+                                                    ORDER BY em.FechaUnion DESC;";
+
+                using (SqlCommand cmd = new SqlCommand(queryListarIntegrantes, connection))
+                {
+                    cmd.Parameters.AddWithValue("@IdEquipo", idEquipo);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        tbIntegrantes.Load(reader);
+                    }
+                }
+            }
+
+            return tbIntegrantes;
+        }
     }
 }

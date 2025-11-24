@@ -15,6 +15,7 @@ namespace CapaPresentacion
         public event EventHandler OnModificarClick;
         public event EventHandler OnEliminarClick;
         public event EventHandler OnInvitarClick;
+        public event EventHandler OnIntegrantesClick;
 
         public usEquipoItem()
         {
@@ -67,7 +68,7 @@ namespace CapaPresentacion
 
         private void btnIntegrantes_Click(object sender, EventArgs e)
         {
-
+            OnIntegrantesClick?.Invoke(this, EventArgs.Empty);
         }
     }
 }
