@@ -29,6 +29,13 @@ namespace CapaPresentacion
         private void mtdCargarInvitaciones()
         {
             DataTable invitaciones = _gestionEquipos.mtdListarInvitacionesPorUsuarioCN(_idUsuarioActual);
+
+            if (invitaciones == null || invitaciones.Rows.Count == 0)
+            {
+                dataGridView1.DataSource = null;
+                return;
+            }
+
             dataGridView1.DataSource = invitaciones;
 
             if (dataGridView1.Columns.Contains("IdInvitacion"))

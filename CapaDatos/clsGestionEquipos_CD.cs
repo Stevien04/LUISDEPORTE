@@ -103,15 +103,17 @@ namespace CapaDatos
             {
                 connection.Open();
 
-                string queryInvitarUsuario = @"INSERT INTO tbInvitacionEquipo (IdEquipo, IdUsuarioInvitador, IdUsuarioCreador, Estado, FechaEnvio)
-                                               VALUES (@IdEquipo, @IdUsuarioInvitado, @IdUsuarioEmisor, @Estado, GETDATE());";
+                string queryInvitarUsuario = @"INSERT INTO tbInvitacionEquipo (IdEquipo, IdUsuarioInvitador, IdUsuarioCreador, IdEstadoInvitacion, FechaEnvio)
+                                               VALUES (@IdEquipo, @IdUsuarioInvitado, @IdUsuarioEmisor,
+                                                       (SELECT TOP 1 IdEstadoInvitacion FROM tbEstadoInvitacion WHERE NombreEstado = @NombreEstado),
+                                                       GETDATE());";
 
                 using (SqlCommand cmdInvitarUsuario = new SqlCommand(queryInvitarUsuario, connection))
                 {
                     cmdInvitarUsuario.Parameters.AddWithValue("@IdEquipo", IdEquipo);
                     cmdInvitarUsuario.Parameters.AddWithValue("@IdUsuarioInvitado", IdUsuarioInvitado);
                     cmdInvitarUsuario.Parameters.AddWithValue("@IdUsuarioEmisor", IdUsuarioEmisor);
-                    cmdInvitarUsuario.Parameters.AddWithValue("@Estado", "Pendiente");
+                    cmdInvitarUsuario.Parameters.AddWithValue("@NombreEstado", "Pendiente");
 
                     cmdInvitarUsuario.ExecuteNonQuery();
                 }
@@ -129,11 +131,11 @@ namespace CapaDatos
                 string queryListarInvitaciones = @"SELECT ie.IdInvitacion,
                                                        e.NombreEquipo,
                                                        u.NombreUsuario AS UsuarioEmisor,
-                                                       ie.Estado,
+                                                       ei.NombreEstado AS Estado,
                                                        ie.FechaEnvio
                                                 FROM tbInvitacionEquipo ie
                                                 INNER JOIN tbEquipo e ON ie.IdEquipo = e.IDEquipo
-                                                INNER JOIN tbUsuario u ON ie.IdUsuarioCreador = u.IDUsuario
+                                                LEFT JOIN tbEstadoInvitacion ei ON ie.IdEstadoInvitacion = ei.IdEstadoInvitacion
                                                 WHERE ie.IdUsuarioInvitador = @IdUsuarioInvitado
                                                 ORDER BY ie.FechaEnvio DESC";
 
@@ -143,10 +145,7 @@ namespace CapaDatos
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.HasRows)
-                        {
-                            tbInvitaciones.Load(reader);
-                        }
+                        tbInvitaciones.Load(reader);
                     }
                 }
             }
