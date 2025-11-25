@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmNoticaciones : Form
+    public partial class frmNoticacionesEquipo : Form
     {
         private readonly clsGestionEquipos_CN _gestionEquipos = new clsGestionEquipos_CN();
         private readonly int _idUsuarioActual = clsSesionUsuario_CN.idUsuario;
 
-        public frmNoticaciones()
+        public frmNoticacionesEquipo()
         {
             InitializeComponent();
             mtdActualizarEstadoBotones();

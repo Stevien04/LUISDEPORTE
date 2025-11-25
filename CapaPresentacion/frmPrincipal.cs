@@ -107,11 +107,16 @@ namespace CapaPresentacion
             mtdShowSubMenu(pnlEquipo);
         }
 
-        private void btnNotificaciones_Click(object sender, EventArgs e)
+        private void btnNotificacionesEquipo_Click(object sender, EventArgs e)
         {
-            mtdAbrirFormulario(new frmNoticaciones());
+            mtdAbrirFormulario(new frmNoticacionesEquipo());
 
             mtdHideSubMenu();
+        }
+
+        private void btnNotificacionesTorneo_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

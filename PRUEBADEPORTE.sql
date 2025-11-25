@@ -147,6 +147,21 @@ CREATE TABLE tbHistorialEquipoTorneo (
     FOREIGN KEY (idTorneo) REFERENCES tbTorneos(idTorneos)
 );
 
+CREATE TABLE tbInvitacionTorneo (
+    IdInvitacionTorneo INT IDENTITY(1,1) PRIMARY KEY,
+    IdTorneo INT NOT NULL,
+    IdEquipo INT NOT NULL,              -- Equipo invitado
+    IdUsuarioInvitador INT NOT NULL,    -- Usuario que envía la invitación
+    Estado VARCHAR(50) NOT NULL DEFAULT 'Pendiente', 
+    FechaEnvio DATETIME NOT NULL DEFAULT GETDATE(),
+    FechaRespuesta DATETIME,
+
+    FOREIGN KEY (IdTorneo) REFERENCES tbTorneos(IdTorneos),
+    FOREIGN KEY (IdEquipo) REFERENCES tbEquipo(IdEquipo),
+    FOREIGN KEY (IdUsuarioInvitador) REFERENCES tbUsuario(IDUsuario)
+);
+GO
+
 
 
 SELECT * FROM tbUsuario

@@ -30,16 +30,17 @@
         {
             this.pnlSideMenu = new System.Windows.Forms.Panel();
             this.pnlEquipo = new System.Windows.Forms.Panel();
+            this.btnNotificacionesEquipo = new System.Windows.Forms.Button();
             this.btnListarEquipo = new System.Windows.Forms.Button();
             this.btnCrearEquipo = new System.Windows.Forms.Button();
             this.btnEquipo = new System.Windows.Forms.Button();
             this.pnlTorneo = new System.Windows.Forms.Panel();
+            this.btnNotificacionesTorneo = new System.Windows.Forms.Button();
             this.btnListarTorneos = new System.Windows.Forms.Button();
             this.btnCrearTorneo = new System.Windows.Forms.Button();
             this.btnTorneo = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
-            this.btnNotificaciones = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             this.pnlEquipo.SuspendLayout();
             this.pnlTorneo.SuspendLayout();
@@ -49,7 +50,6 @@
             // 
             this.pnlSideMenu.AutoScroll = true;
             this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.pnlSideMenu.Controls.Add(this.btnNotificaciones);
             this.pnlSideMenu.Controls.Add(this.pnlEquipo);
             this.pnlSideMenu.Controls.Add(this.btnEquipo);
             this.pnlSideMenu.Controls.Add(this.pnlTorneo);
@@ -64,13 +64,32 @@
             // pnlEquipo
             // 
             this.pnlEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.pnlEquipo.Controls.Add(this.btnNotificacionesEquipo);
             this.pnlEquipo.Controls.Add(this.btnListarEquipo);
             this.pnlEquipo.Controls.Add(this.btnCrearEquipo);
             this.pnlEquipo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEquipo.Location = new System.Drawing.Point(0, 300);
+            this.pnlEquipo.Location = new System.Drawing.Point(0, 339);
             this.pnlEquipo.Name = "pnlEquipo";
-            this.pnlEquipo.Size = new System.Drawing.Size(219, 93);
+            this.pnlEquipo.Size = new System.Drawing.Size(219, 147);
             this.pnlEquipo.TabIndex = 1;
+            // 
+            // btnNotificacionesEquipo
+            // 
+            this.btnNotificacionesEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.btnNotificacionesEquipo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificacionesEquipo.FlatAppearance.BorderSize = 0;
+            this.btnNotificacionesEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificacionesEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotificacionesEquipo.ForeColor = System.Drawing.Color.Black;
+            this.btnNotificacionesEquipo.Location = new System.Drawing.Point(0, 80);
+            this.btnNotificacionesEquipo.Name = "btnNotificacionesEquipo";
+            this.btnNotificacionesEquipo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnNotificacionesEquipo.Size = new System.Drawing.Size(219, 40);
+            this.btnNotificacionesEquipo.TabIndex = 4;
+            this.btnNotificacionesEquipo.Text = "Notificaciones";
+            this.btnNotificacionesEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotificacionesEquipo.UseVisualStyleBackColor = false;
+            this.btnNotificacionesEquipo.Click += new System.EventHandler(this.btnNotificacionesEquipo_Click);
             // 
             // btnListarEquipo
             // 
@@ -115,7 +134,7 @@
             this.btnEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEquipo.ForeColor = System.Drawing.Color.Black;
-            this.btnEquipo.Location = new System.Drawing.Point(0, 255);
+            this.btnEquipo.Location = new System.Drawing.Point(0, 294);
             this.btnEquipo.Name = "btnEquipo";
             this.btnEquipo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEquipo.Size = new System.Drawing.Size(219, 45);
@@ -128,13 +147,31 @@
             // pnlTorneo
             // 
             this.pnlTorneo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.pnlTorneo.Controls.Add(this.btnNotificacionesTorneo);
             this.pnlTorneo.Controls.Add(this.btnListarTorneos);
             this.pnlTorneo.Controls.Add(this.btnCrearTorneo);
             this.pnlTorneo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTorneo.Location = new System.Drawing.Point(0, 155);
             this.pnlTorneo.Name = "pnlTorneo";
-            this.pnlTorneo.Size = new System.Drawing.Size(219, 100);
+            this.pnlTorneo.Size = new System.Drawing.Size(219, 139);
             this.pnlTorneo.TabIndex = 1;
+            // 
+            // btnNotificacionesTorneo
+            // 
+            this.btnNotificacionesTorneo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificacionesTorneo.FlatAppearance.BorderSize = 0;
+            this.btnNotificacionesTorneo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificacionesTorneo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotificacionesTorneo.ForeColor = System.Drawing.Color.Black;
+            this.btnNotificacionesTorneo.Location = new System.Drawing.Point(0, 80);
+            this.btnNotificacionesTorneo.Name = "btnNotificacionesTorneo";
+            this.btnNotificacionesTorneo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnNotificacionesTorneo.Size = new System.Drawing.Size(219, 40);
+            this.btnNotificacionesTorneo.TabIndex = 3;
+            this.btnNotificacionesTorneo.Text = "Notificaciones";
+            this.btnNotificacionesTorneo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotificacionesTorneo.UseVisualStyleBackColor = true;
+            this.btnNotificacionesTorneo.Click += new System.EventHandler(this.btnNotificacionesTorneo_Click);
             // 
             // btnListarTorneos
             // 
@@ -207,23 +244,6 @@
             this.pnlContenedor.Size = new System.Drawing.Size(715, 561);
             this.pnlContenedor.TabIndex = 1;
             // 
-            // btnNotificaciones
-            // 
-            this.btnNotificaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(223)))), ((int)(((byte)(130)))));
-            this.btnNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotificaciones.ForeColor = System.Drawing.Color.Black;
-            this.btnNotificaciones.Location = new System.Drawing.Point(0, 393);
-            this.btnNotificaciones.Name = "btnNotificaciones";
-            this.btnNotificaciones.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNotificaciones.Size = new System.Drawing.Size(219, 45);
-            this.btnNotificaciones.TabIndex = 3;
-            this.btnNotificaciones.Text = "Notificaciones";
-            this.btnNotificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotificaciones.UseVisualStyleBackColor = false;
-            this.btnNotificaciones.Click += new System.EventHandler(this.btnNotificaciones_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +273,7 @@
         private System.Windows.Forms.Button btnCrearEquipo;
         private System.Windows.Forms.Button btnEquipo;
         private System.Windows.Forms.Panel pnlContenedor;
-        private System.Windows.Forms.Button btnNotificaciones;
+        private System.Windows.Forms.Button btnNotificacionesEquipo;
+        private System.Windows.Forms.Button btnNotificacionesTorneo;
     }
 }

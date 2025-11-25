@@ -46,47 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCrearTorneo.cs">
+    <Compile Include="frmNotificacionesTorneo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCrearTorneo.Designer.cs">
+    <Compile Include="frmNotificacionesTorneo.Designer.cs">
+      <DependentUpon>frmNotificacionesTorneo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Torneo\frmCrearTorneo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Torneo\frmCrearTorneo.Designer.cs">
       <DependentUpon>frmCrearTorneo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInvitarEquipoTorneo.cs">
+    <Compile Include="Torneo\frmInvitarEquipoTorneo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInvitarEquipoTorneo.Designer.cs">
+    <Compile Include="Torneo\frmInvitarEquipoTorneo.Designer.cs">
       <DependentUpon>frmInvitarEquipoTorneo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListarEquipos.cs">
+    <Compile Include="Equipo\frmListarEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListarEquipos.Designer.cs">
+    <Compile Include="Equipo\frmListarEquipos.Designer.cs">
       <DependentUpon>frmListarEquipos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListarIntegrantesEquipo.cs">
+    <Compile Include="Equipo\frmListarIntegrantesEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListarIntegrantesEquipo.Designer.cs">
+    <Compile Include="Equipo\frmListarIntegrantesEquipo.Designer.cs">
       <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListarIntegrantesTorneo.cs">
+    <Compile Include="Torneo\frmListarIntegrantesTorneo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListarIntegrantesTorneo.Designer.cs">
+    <Compile Include="Torneo\frmListarIntegrantesTorneo.Designer.cs">
       <DependentUpon>frmListarIntegrantesTorneo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListarTorneos.cs">
+    <Compile Include="Torneo\frmListarTorneos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListarTorneos.Designer.cs">
+    <Compile Include="Torneo\frmListarTorneos.Designer.cs">
       <DependentUpon>frmListarTorneos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNoticaciones.cs">
+    <Compile Include="Equipo\frmNoticacionesEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNoticaciones.Designer.cs">
-      <DependentUpon>frmNoticaciones.cs</DependentUpon>
+    <Compile Include="Equipo\frmNoticacionesEquipo.Designer.cs">
+      <DependentUpon>frmNoticacionesEquipo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -132,26 +138,29 @@
     <Compile Include="usTorneoItem.Designer.cs">
       <DependentUpon>usTorneoItem.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmCrearTorneo.resx">
+    <EmbeddedResource Include="frmNotificacionesTorneo.resx">
+      <DependentUpon>frmNotificacionesTorneo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Torneo\frmCrearTorneo.resx">
       <DependentUpon>frmCrearTorneo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInvitarEquipoTorneo.resx">
+    <EmbeddedResource Include="Torneo\frmInvitarEquipoTorneo.resx">
       <DependentUpon>frmInvitarEquipoTorneo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListarEquipos.resx">
+    <EmbeddedResource Include="Equipo\frmListarEquipos.resx">
       <DependentUpon>frmListarEquipos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListarIntegrantesEquipo.resx">
+    <EmbeddedResource Include="Equipo\frmListarIntegrantesEquipo.resx">
       <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListarIntegrantesTorneo.resx">
+    <EmbeddedResource Include="Torneo\frmListarIntegrantesTorneo.resx">
       <DependentUpon>frmListarIntegrantesTorneo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListarTorneos.resx">
+    <EmbeddedResource Include="Torneo\frmListarTorneos.resx">
       <DependentUpon>frmListarTorneos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNoticaciones.resx">
-      <DependentUpon>frmNoticaciones.cs</DependentUpon>
+    <EmbeddedResource Include="Equipo\frmNoticacionesEquipo.resx">
+      <DependentUpon>frmNoticacionesEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

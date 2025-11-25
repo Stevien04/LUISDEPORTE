@@ -16,6 +16,7 @@ namespace CapaPresentacion
         private readonly int _idTorneo;
         private readonly string _nombreTorneo;
         private readonly clsGestionTorneos_CN ObjGestionTorneos = new clsGestionTorneos_CN();
+        private readonly int _idUsuarioActual = clsSesionUsuario_CN.idUsuario;
 
         private int _idEquipoSeleccionado;
         private string _nombreEquipoSeleccionado;
@@ -79,11 +80,11 @@ namespace CapaPresentacion
                 return;
             }
 
-            bool invitacionRegistrada = ObjGestionTorneos.mtdAgregarEquipoATorneoCN(_idTorneo, _idEquipoSeleccionado);
+            bool invitacionRegistrada = ObjGestionTorneos.mtdInvitarEquipoATorneoCN(_idTorneo, _idEquipoSeleccionado, _idUsuarioActual);
 
             if (invitacionRegistrada)
             {
-                MessageBox.Show($"Se invitó al equipo '{_nombreEquipoSeleccionado}' al torneo.", "Invitación registrada",
+                MessageBox.Show($"Se envió la invitación al equipo '{_nombreEquipoSeleccionado}'. Quedará pendiente hasta que el otro usuario responda.", "Invitación registrada",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarEquiposDisponibles();
             }

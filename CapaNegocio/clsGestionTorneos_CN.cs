@@ -37,6 +37,11 @@ namespace CapaNegocio
             return ObjGestionTorneos.mtdBuscarEquiposActivosCD(filtroUsuario, filtroEquipo);
         }
 
+        public bool mtdInvitarEquipoATorneoCN(int idTorneo, int idEquipo, int idUsuarioInvitador)
+        {
+            return ObjGestionTorneos.mtdInvitarEquipoATorneoCD(idTorneo, idEquipo, idUsuarioInvitador);
+        }
+
         public bool mtdAgregarEquipoATorneoCN(int idTorneo, int idEquipo)
         {
             return ObjGestionTorneos.mtdAgregarEquipoATorneoCD(idTorneo, idEquipo);
@@ -45,6 +50,16 @@ namespace CapaNegocio
         public DataTable mtdListarEquiposPorTorneoCN(int idTorneo)
         {
             return ObjGestionTorneos.mtdListarEquiposPorTorneoCD(idTorneo);
+        }
+
+        public DataTable mtdListarInvitacionesTorneoPorUsuarioCN(int idUsuarioInvitado)
+        {
+            return ObjGestionTorneos.mtdListarInvitacionesTorneoPorUsuarioCD(idUsuarioInvitado);
+        }
+
+        public bool mtdResponderInvitacionTorneoCN(int idInvitacion, string nuevoEstado)
+        {
+            return ObjGestionTorneos.mtdResponderInvitacionTorneoCD(idInvitacion, nuevoEstado);
         }
     }
 }
