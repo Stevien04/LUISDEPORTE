@@ -35,6 +35,7 @@ namespace CapaPresentacion
             if (invitaciones == null || invitaciones.Rows.Count == 0)
             {
                 dgvNotificacionesTorneo.DataSource = null;
+                mtdActualizarEstadoBotones();
                 return;
             }
 
@@ -47,6 +48,7 @@ namespace CapaPresentacion
 
             dgvNotificacionesTorneo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNotificacionesTorneo.ClearSelection();
+            mtdActualizarEstadoBotones();
         }
 
         private int? mtdObtenerIdInvitacionSeleccionada()

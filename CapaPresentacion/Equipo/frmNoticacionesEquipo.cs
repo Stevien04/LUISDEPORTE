@@ -35,6 +35,7 @@ namespace CapaPresentacion
             if (invitaciones == null || invitaciones.Rows.Count == 0)
             {
                 dataGridView1.DataSource = null;
+                mtdActualizarEstadoBotones();
                 return;
             }
 
