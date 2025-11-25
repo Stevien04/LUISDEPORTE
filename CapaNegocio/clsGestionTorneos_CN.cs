@@ -32,9 +32,9 @@ namespace CapaNegocio
             return ObjGestionTorneos.mtdEliminarTorneoCD(idTorneo, idCreador);
         }
 
-        public DataTable mtdBuscarEquiposCN(string filtroNombre)
+        public DataTable mtdBuscarEquiposCN(string filtroUsuario, string filtroEquipo)
         {
-            return ObjGestionTorneos.mtdBuscarEquiposActivosCD(filtroNombre);
+            return ObjGestionTorneos.mtdBuscarEquiposActivosCD(filtroUsuario, filtroEquipo);
         }
 
         public bool mtdAgregarEquipoATorneoCN(int idTorneo, int idEquipo)

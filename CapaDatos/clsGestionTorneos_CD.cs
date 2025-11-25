@@ -109,7 +109,7 @@ namespace CapaDatos
             return respuesta;
         }
 
-        public DataTable mtdBuscarEquiposActivosCD(string filtroNombre)
+        public DataTable mtdBuscarEquiposActivosCD(string filtroUsuario, string filtroEquipo)
         {
             DataTable tbEquipos = new DataTable();
 
@@ -120,12 +120,15 @@ namespace CapaDatos
                 string queryBuscar = @"SELECT e.IDEquipo, e.NombreEquipo, u.NombreUsuario AS Creador
                                         FROM tbEquipo e
                                         INNER JOIN tbUsuario u ON e.IDCreador = u.IDUsuario
-                                        WHERE e.Estado = 1 AND e.NombreEquipo LIKE '%' + @Filtro + '%'
+                                        WHERE e.Estado = 1
+                                          AND (@FiltroUsuario = '' OR u.NombreUsuario LIKE '%' + @FiltroUsuario + '%')
+                                          AND (@FiltroEquipo = '' OR e.NombreEquipo LIKE '%' + @FiltroEquipo + '%')
                                         ORDER BY e.NombreEquipo";
 
                 using (SqlCommand cmd = new SqlCommand(queryBuscar, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Filtro", filtroNombre ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@FiltroUsuario", filtroUsuario ?? string.Empty);
+                    cmd.Parameters.AddWithValue("@FiltroEquipo", filtroEquipo ?? string.Empty);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {

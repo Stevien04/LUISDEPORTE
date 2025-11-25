@@ -32,12 +32,12 @@
             this.txtTorneo = new System.Windows.Forms.TextBox();
             this.lblEquipo = new System.Windows.Forms.Label();
             this.gpbEquipoInvitado = new System.Windows.Forms.GroupBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvEquipo = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNomEquipo = new System.Windows.Forms.TextBox();
             this.lblNomEquipo = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gpbEquipoInvitado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipo)).BeginInit();
             this.SuspendLayout();
@@ -83,21 +83,37 @@
             this.gpbEquipoInvitado.TabStop = false;
             this.gpbEquipoInvitado.Text = "Usuario Invitado";
             // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(181, 30);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(58, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nombre de Usuario";
+            // 
             // dgvEquipo
             // 
             this.dgvEquipo.AllowUserToAddRows = false;
             this.dgvEquipo.AllowUserToDeleteRows = false;
             this.dgvEquipo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvEquipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEquipo.Location = new System.Drawing.Point(29, 146);
+            this.dgvEquipo.Location = new System.Drawing.Point(29, 109);
             this.dgvEquipo.Name = "dgvEquipo";
             this.dgvEquipo.ReadOnly = true;
-            this.dgvEquipo.Size = new System.Drawing.Size(350, 76);
+            this.dgvEquipo.Size = new System.Drawing.Size(350, 124);
             this.dgvEquipo.TabIndex = 6;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(285, 117);
+            this.btnBuscar.Location = new System.Drawing.Point(285, 80);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 2;
@@ -107,7 +123,7 @@
             // 
             // txtNomEquipo
             // 
-            this.txtNomEquipo.Location = new System.Drawing.Point(181, 93);
+            this.txtNomEquipo.Location = new System.Drawing.Point(181, 56);
             this.txtNomEquipo.Name = "txtNomEquipo";
             this.txtNomEquipo.Size = new System.Drawing.Size(100, 20);
             this.txtNomEquipo.TabIndex = 1;
@@ -115,27 +131,11 @@
             // lblNomEquipo
             // 
             this.lblNomEquipo.AutoSize = true;
-            this.lblNomEquipo.Location = new System.Drawing.Point(58, 96);
+            this.lblNomEquipo.Location = new System.Drawing.Point(58, 59);
             this.lblNomEquipo.Name = "lblNomEquipo";
             this.lblNomEquipo.Size = new System.Drawing.Size(95, 13);
             this.lblNomEquipo.TabIndex = 0;
             this.lblNomEquipo.Text = "Nombre de Equipo";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(181, 67);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuario.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Nombre de Usuario";
             // 
             // frmInvitarEquipoTorneo
             // 
@@ -149,6 +149,7 @@
             this.Name = "frmInvitarEquipoTorneo";
             this.Text = "frmInvitar";
             this.Load += new System.EventHandler(this.frmInvitar_Load);
+            this.Click += new System.EventHandler(this.frmInvitarEquipoTorneo_Click);
             this.gpbEquipoInvitado.ResumeLayout(false);
             this.gpbEquipoInvitado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipo)).EndInit();

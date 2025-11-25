@@ -39,6 +39,7 @@ namespace CapaPresentacion
             if (SoloLectura)
             {
                 txtNomEquipo.Enabled = false;
+                txtUsuario.Enabled = false;
                 btnBuscar.Enabled = false;
                 btnInvitar.Enabled = false;
             }
@@ -46,7 +47,14 @@ namespace CapaPresentacion
 
         private void CargarEquiposDisponibles()
         {
-            DataTable tabla = ObjGestionTorneos.mtdBuscarEquiposCN(txtNomEquipo.Text);
+            string filtroUsuario = txtUsuario.Text.Trim();
+            string filtroEquipo = txtNomEquipo.Text.Trim();
+
+            DataTable tabla = ObjGestionTorneos.mtdBuscarEquiposCN(filtroUsuario, filtroEquipo);
+
+            dgvEquipo.DataSource = null;
+            dgvEquipo.Rows.Clear();
+            dgvEquipo.Columns.Clear();
             dgvEquipo.DataSource = tabla;
 
             if (dgvEquipo.Columns.Contains("IDEquipo"))
@@ -61,6 +69,11 @@ namespace CapaPresentacion
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarEquiposDisponibles();
+        }
+
+        private void frmInvitarEquipoTorneo_Click(object sender, EventArgs e)
         {
 
         }
