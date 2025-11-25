@@ -84,6 +84,7 @@
             this.Controls.Add(this.dgvNotificacionesTorneo);
             this.Name = "frmNotificacionesTorneo";
             this.Text = "frmNotificacionesTorneo";
+            this.Load += new System.EventHandler(this.frmNotificacionesTorneo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotificacionesTorneo)).EndInit();
             this.ResumeLayout(false);
 
