@@ -116,7 +116,9 @@ namespace CapaPresentacion
 
         private void btnNotificacionesTorneo_Click(object sender, EventArgs e)
         {
-            
+            mtdAbrirFormulario(new frmNotificacionesTorneo());
+
+            mtdHideSubMenu();
         }
     }
 }

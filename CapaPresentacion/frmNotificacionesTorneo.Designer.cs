@@ -45,6 +45,7 @@
             this.btnRechazar.TabIndex = 71;
             this.btnRechazar.Text = "Rechazar";
             this.btnRechazar.UseVisualStyleBackColor = false;
+            this.btnRechazar.Click += new System.EventHandler(this.btnRechazar_Click);
             // 
             // btnAceptar
             // 
@@ -57,6 +58,7 @@
             this.btnAceptar.TabIndex = 70;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // dgvNotificacionesTorneo
             // 
@@ -70,6 +72,7 @@
             this.dgvNotificacionesTorneo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNotificacionesTorneo.Size = new System.Drawing.Size(611, 150);
             this.dgvNotificacionesTorneo.TabIndex = 69;
+            this.dgvNotificacionesTorneo.SelectionChanged += new System.EventHandler(this.dgvNotificacionesTorneo_SelectionChanged_1);
             // 
             // frmNotificacionesTorneo
             // 
