@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmInvitar : Form
+    public partial class frmInvitarEquipoTorneo : Form
     {
         private readonly int _idTorneo;
         private readonly string _nombreTorneo;
@@ -20,7 +20,7 @@ namespace CapaPresentacion
         public bool SoloLectura { get; set; }
 
 
-        public frmInvitar(int idTorneo, string nombreTorneo)
+        public frmInvitarEquipoTorneo(int idTorneo, string nombreTorneo)
         {
             InitializeComponent();
             _idTorneo = idTorneo;
@@ -29,9 +29,8 @@ namespace CapaPresentacion
 
         private void frmInvitar_Load(object sender, EventArgs e)
         {
-            lblTorneo.Text = $"Torneo: {_nombreTorneo}";
+            txtTorneo.Text = $"Torneo: {_nombreTorneo}";
             CargarEquiposDisponibles();
-            CargarEquiposEnTorneo();
             AplicarSoloLectura();
         }
 
@@ -39,7 +38,7 @@ namespace CapaPresentacion
         {
             if (SoloLectura)
             {
-                txtBuscar.Enabled = false;
+                txtNomEquipo.Enabled = false;
                 btnBuscar.Enabled = false;
                 btnInvitar.Enabled = false;
             }
@@ -53,17 +52,6 @@ namespace CapaPresentacion
             if (dgvEquipo.Columns.Contains("IDEquipo"))
             {
                 dgvEquipo.Columns["IDEquipo"].Visible = false;
-            }
-        }
-
-        private void CargarEquiposEnTorneo()
-        {
-            DataTable tabla = ObjGestionTorneos.mtdListarEquiposPorTorneoCN(_idTorneo);
-            dgvEquiposTorneo.DataSource = tabla;
-
-            if (dgvEquiposTorneo.Columns.Contains("IDEquipo"))
-            {
-                dgvEquiposTorneo.Columns["IDEquipo"].Visible = false;
             }
         }
     }

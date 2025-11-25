@@ -55,6 +55,7 @@
             this.btnIntegrantes.TabIndex = 83;
             this.btnIntegrantes.Text = "Ver Integrantes";
             this.btnIntegrantes.UseVisualStyleBackColor = false;
+            this.btnIntegrantes.Click += new System.EventHandler(this.btnIntegrantes_Click_1);
             // 
             // btnInvitar
             // 
@@ -67,6 +68,7 @@
             this.btnInvitar.TabIndex = 82;
             this.btnInvitar.Text = "Invitar";
             this.btnInvitar.UseVisualStyleBackColor = false;
+            this.btnInvitar.Click += new System.EventHandler(this.btnInvitar_Click_1);
             // 
             // label2
             // 
@@ -119,6 +121,7 @@
             this.btnEliminar.TabIndex = 77;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnModificar
             // 
@@ -131,6 +134,7 @@
             this.btnModificar.TabIndex = 76;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
             // panel1
             // 

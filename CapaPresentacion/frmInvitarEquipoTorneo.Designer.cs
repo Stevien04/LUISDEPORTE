@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmInvitar
+    partial class frmInvitarEquipoTorneo
     {
         /// <summary>
         /// Required designer variable.
