@@ -207,13 +207,12 @@ namespace CapaPresentacion
         {
             if (sender is usTorneoItem item)
             {
-                using (frmInvitarEquipoTorneo frmInvitar = new frmInvitarEquipoTorneo(item.IDTorneo, item.NombreTorneo))
+                using (frmListarIntegrantesTorneo frmIntegrantes = new frmListarIntegrantesTorneo(item.IDTorneo))
                 {
-                    frmInvitar.StartPosition = FormStartPosition.CenterParent;
-                    frmInvitar.ShowIcon = false;
-                    frmInvitar.ShowInTaskbar = false;
-                    frmInvitar.SoloLectura = true;
-                    frmInvitar.ShowDialog(this);
+                    frmIntegrantes.StartPosition = FormStartPosition.CenterParent;
+                    frmIntegrantes.ShowIcon = false;
+                    frmIntegrantes.ShowInTaskbar = false;
+                    frmIntegrantes.ShowDialog(this);
                 }
             }
         }

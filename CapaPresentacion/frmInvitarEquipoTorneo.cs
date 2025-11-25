@@ -29,7 +29,7 @@ namespace CapaPresentacion
 
         private void frmInvitar_Load(object sender, EventArgs e)
         {
-            txtTorneo.Text = $"Torneo: {_nombreTorneo}";
+            txtTorneo.Text = _nombreTorneo;
             CargarEquiposDisponibles();
             AplicarSoloLectura();
         }
@@ -53,6 +53,16 @@ namespace CapaPresentacion
             {
                 dgvEquipo.Columns["IDEquipo"].Visible = false;
             }
+        }
+
+        private void btnInvitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
