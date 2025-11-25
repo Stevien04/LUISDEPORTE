@@ -17,6 +17,9 @@ namespace CapaPresentacion
         private readonly string _nombreTorneo;
         private readonly clsGestionTorneos_CN ObjGestionTorneos = new clsGestionTorneos_CN();
 
+        private int _idEquipoSeleccionado;
+        private string _nombreEquipoSeleccionado;
+
         public bool SoloLectura { get; set; }
 
 
@@ -50,6 +53,10 @@ namespace CapaPresentacion
             string filtroUsuario = txtUsuario.Text.Trim();
             string filtroEquipo = txtNomEquipo.Text.Trim();
 
+            _idEquipoSeleccionado = 0;
+            _nombreEquipoSeleccionado = string.Empty;
+            btnInvitar.Enabled = false;
+
             DataTable tabla = ObjGestionTorneos.mtdBuscarEquiposCN(filtroUsuario, filtroEquipo);
 
             dgvEquipo.DataSource = null;
@@ -65,7 +72,26 @@ namespace CapaPresentacion
 
         private void btnInvitar_Click(object sender, EventArgs e)
         {
+            if (_idEquipoSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un equipo antes de enviar la invitación.", "Equipo requerido",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            bool invitacionRegistrada = ObjGestionTorneos.mtdAgregarEquipoATorneoCN(_idTorneo, _idEquipoSeleccionado);
+
+            if (invitacionRegistrada)
+            {
+                MessageBox.Show($"Se invitó al equipo '{_nombreEquipoSeleccionado}' al torneo.", "Invitación registrada",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarEquiposDisponibles();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo registrar la invitación. Intente nuevamente.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -73,9 +99,20 @@ namespace CapaPresentacion
             CargarEquiposDisponibles();
         }
 
-        private void frmInvitarEquipoTorneo_Click(object sender, EventArgs e)
+        private void dgvEquipo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 || e.RowIndex >= dgvEquipo.Rows.Count)
+                return;
 
+            DataGridViewRow row = dgvEquipo.Rows[e.RowIndex];
+
+            if (row.Cells["IDEquipo"]?.Value == null)
+                return;
+
+            _idEquipoSeleccionado = Convert.ToInt32(row.Cells["IDEquipo"].Value);
+            _nombreEquipoSeleccionado = row.Cells["NombreEquipo"]?.Value?.ToString() ?? string.Empty;
+
+            btnInvitar.Enabled = !SoloLectura;
         }
     }
 }

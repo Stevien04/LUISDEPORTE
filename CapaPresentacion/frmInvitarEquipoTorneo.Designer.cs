@@ -110,6 +110,7 @@
             this.dgvEquipo.ReadOnly = true;
             this.dgvEquipo.Size = new System.Drawing.Size(350, 124);
             this.dgvEquipo.TabIndex = 6;
+            this.dgvEquipo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipo_CellClick);
             // 
             // btnBuscar
             // 
@@ -149,7 +150,6 @@
             this.Name = "frmInvitarEquipoTorneo";
             this.Text = "frmInvitar";
             this.Load += new System.EventHandler(this.frmInvitar_Load);
-            this.Click += new System.EventHandler(this.frmInvitarEquipoTorneo_Click);
             this.gpbEquipoInvitado.ResumeLayout(false);
             this.gpbEquipoInvitado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipo)).EndInit();
