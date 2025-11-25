@@ -37,17 +37,18 @@
             this.dgvIntegrantesEquipo.AllowUserToAddRows = false;
             this.dgvIntegrantesEquipo.AllowUserToDeleteRows = false;
             this.dgvIntegrantesEquipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIntegrantesEquipo.Location = new System.Drawing.Point(67, 46);
+            this.dgvIntegrantesEquipo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvIntegrantesEquipo.Location = new System.Drawing.Point(0, 0);
             this.dgvIntegrantesEquipo.Name = "dgvIntegrantesEquipo";
             this.dgvIntegrantesEquipo.ReadOnly = true;
-            this.dgvIntegrantesEquipo.Size = new System.Drawing.Size(608, 150);
+            this.dgvIntegrantesEquipo.Size = new System.Drawing.Size(625, 271);
             this.dgvIntegrantesEquipo.TabIndex = 0;
             // 
             // frmListarIntegrantesEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(625, 271);
             this.Controls.Add(this.dgvIntegrantesEquipo);
             this.Name = "frmListarIntegrantesEquipo";
             this.Text = "frmListarIntegrantesEquipo";

@@ -70,6 +70,12 @@
     <Compile Include="frmListarIntegrantesEquipo.Designer.cs">
       <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListarIntegrantesTorneo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarIntegrantesTorneo.Designer.cs">
+      <DependentUpon>frmListarIntegrantesTorneo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarTorneos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarIntegrantesEquipo.resx">
       <DependentUpon>frmListarIntegrantesEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarIntegrantesTorneo.resx">
+      <DependentUpon>frmListarIntegrantesTorneo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarTorneos.resx">
       <DependentUpon>frmListarTorneos.cs</DependentUpon>
