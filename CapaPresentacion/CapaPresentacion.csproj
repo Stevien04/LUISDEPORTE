@@ -46,10 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmNotificacionesTorneo.cs">
+    <Compile Include="frmCrearEnfrentamientos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotificacionesTorneo.Designer.cs">
+    <Compile Include="frmCrearEnfrentamientos.Designer.cs">
+      <DependentUpon>frmCrearEnfrentamientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Torneo\frmNotificacionesTorneo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Torneo\frmNotificacionesTorneo.Designer.cs">
       <DependentUpon>frmNotificacionesTorneo.cs</DependentUpon>
     </Compile>
     <Compile Include="Torneo\frmCrearTorneo.cs">
@@ -138,7 +144,10 @@
     <Compile Include="usTorneoItem.Designer.cs">
       <DependentUpon>usTorneoItem.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmNotificacionesTorneo.resx">
+    <EmbeddedResource Include="frmCrearEnfrentamientos.resx">
+      <DependentUpon>frmCrearEnfrentamientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Torneo\frmNotificacionesTorneo.resx">
       <DependentUpon>frmNotificacionesTorneo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Torneo\frmCrearTorneo.resx">

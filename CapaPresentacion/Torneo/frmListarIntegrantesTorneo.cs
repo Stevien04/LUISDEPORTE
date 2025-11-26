@@ -30,6 +30,7 @@ namespace CapaPresentacion
         private void frmListarIntegrantesTorneo_Load(object sender, EventArgs e)
         {
             mtdCargarEquipos();
+            mtdCargarEnfrentamientos();
         }
 
         private void mtdCargarEquipos()
@@ -44,6 +45,58 @@ namespace CapaPresentacion
             }
 
             dgvIntegrantesTorneo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void mtdCargarEnfrentamientos()
+        {
+            DataTable enfrentamientos = _gestionTorneos.mtdListarEnfrentamientosPorTorneoCN(_idTorneo);
+
+            dgvEnfrentamientos.DataSource = enfrentamientos;
+
+            if (dgvEnfrentamientos.Columns.Contains("IdEquipo1"))
+            {
+                dgvEnfrentamientos.Columns["IdEquipo1"].Visible = false;
+            }
+
+            if (dgvEnfrentamientos.Columns.Contains("IdEquipo2"))
+            {
+                dgvEnfrentamientos.Columns["IdEquipo2"].Visible = false;
+            }
+
+            if (dgvEnfrentamientos.Columns.Contains("IdEnfrentamiento"))
+            {
+                dgvEnfrentamientos.Columns["IdEnfrentamiento"].Visible = false;
+            }
+
+            dgvEnfrentamientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void btnGenerarEnfrentamientos_Click(object sender, EventArgs e)
+        {
+            DataTable equipos = dgvIntegrantesTorneo.DataSource as DataTable;
+            int cantidadEquipos = equipos?.Rows.Count ?? 0;
+
+            if (cantidadEquipos < 2)
+            {
+                MessageBox.Show("Se necesitan al menos dos equipos para generar enfrentamientos.", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int creados = _gestionTorneos.mtdGenerarEnfrentamientosCN(_idTorneo);
+
+            if (creados > 0)
+            {
+                MessageBox.Show($"Se generaron {creados} enfrentamientos nuevos.", "Enfrentamientos creados",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Ya existen todos los enfrentamientos para los equipos del torneo.", "Sin cambios",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            mtdCargarEnfrentamientos();
         }
     }
 }
