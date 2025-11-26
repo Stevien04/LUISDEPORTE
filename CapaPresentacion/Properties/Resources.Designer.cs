@@ -73,9 +73,29 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImgEquipo {
+            get {
+                object obj = ResourceManager.GetObject("ImgEquipo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgMinimizar {
             get {
                 object obj = ResourceManager.GetObject("imgMinimizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImgTorneo {
+            get {
+                object obj = ResourceManager.GetObject("ImgTorneo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

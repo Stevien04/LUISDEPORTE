@@ -28,130 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gpbUsuarioInvitado = new System.Windows.Forms.GroupBox();
             this.dgvUsuario = new System.Windows.Forms.DataGridView();
-            this.txtUsuarioInvitado = new System.Windows.Forms.TextBox();
-            this.lblUsuarioInvitado = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNomUsuario = new System.Windows.Forms.TextBox();
             this.lblNomUsuario = new System.Windows.Forms.Label();
             this.txtEquipo = new System.Windows.Forms.TextBox();
             this.lblEquipo = new System.Windows.Forms.Label();
-            this.btnInvitar = new System.Windows.Forms.Button();
-            this.gpbUsuarioInvitado.SuspendLayout();
+            this.btnInvita = new System.Windows.Forms.Button();
+            this.btnBusca = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gpbUsuarioInvitado
-            // 
-            this.gpbUsuarioInvitado.Controls.Add(this.dgvUsuario);
-            this.gpbUsuarioInvitado.Controls.Add(this.txtUsuarioInvitado);
-            this.gpbUsuarioInvitado.Controls.Add(this.lblUsuarioInvitado);
-            this.gpbUsuarioInvitado.Controls.Add(this.btnBuscar);
-            this.gpbUsuarioInvitado.Controls.Add(this.txtNomUsuario);
-            this.gpbUsuarioInvitado.Controls.Add(this.lblNomUsuario);
-            this.gpbUsuarioInvitado.Location = new System.Drawing.Point(28, 86);
-            this.gpbUsuarioInvitado.Name = "gpbUsuarioInvitado";
-            this.gpbUsuarioInvitado.Size = new System.Drawing.Size(426, 249);
-            this.gpbUsuarioInvitado.TabIndex = 0;
-            this.gpbUsuarioInvitado.TabStop = false;
-            this.gpbUsuarioInvitado.Text = "Usuario Invitado";
             // 
             // dgvUsuario
             // 
             this.dgvUsuario.AllowUserToAddRows = false;
             this.dgvUsuario.AllowUserToDeleteRows = false;
             this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuario.Location = new System.Drawing.Point(32, 99);
+            this.dgvUsuario.Location = new System.Drawing.Point(16, 182);
             this.dgvUsuario.Name = "dgvUsuario";
             this.dgvUsuario.ReadOnly = true;
-            this.dgvUsuario.Size = new System.Drawing.Size(350, 76);
+            this.dgvUsuario.Size = new System.Drawing.Size(371, 138);
             this.dgvUsuario.TabIndex = 6;
             this.dgvUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellClick);
             // 
-            // txtUsuarioInvitado
-            // 
-            this.txtUsuarioInvitado.Location = new System.Drawing.Point(155, 193);
-            this.txtUsuarioInvitado.Name = "txtUsuarioInvitado";
-            this.txtUsuarioInvitado.ReadOnly = true;
-            this.txtUsuarioInvitado.Size = new System.Drawing.Size(100, 20);
-            this.txtUsuarioInvitado.TabIndex = 5;
-            // 
-            // lblUsuarioInvitado
-            // 
-            this.lblUsuarioInvitado.AutoSize = true;
-            this.lblUsuarioInvitado.Location = new System.Drawing.Point(41, 196);
-            this.lblUsuarioInvitado.Name = "lblUsuarioInvitado";
-            this.lblUsuarioInvitado.Size = new System.Drawing.Size(92, 13);
-            this.lblUsuarioInvitado.TabIndex = 4;
-            this.lblUsuarioInvitado.Text = "IDUsuarioInvitado";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(180, 70);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // txtNomUsuario
             // 
-            this.txtNomUsuario.Location = new System.Drawing.Point(155, 33);
+            this.txtNomUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.txtNomUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomUsuario.Location = new System.Drawing.Point(184, 98);
             this.txtNomUsuario.Name = "txtNomUsuario";
-            this.txtNomUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtNomUsuario.Size = new System.Drawing.Size(203, 27);
             this.txtNomUsuario.TabIndex = 1;
             // 
             // lblNomUsuario
             // 
             this.lblNomUsuario.AutoSize = true;
-            this.lblNomUsuario.Location = new System.Drawing.Point(41, 36);
+            this.lblNomUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomUsuario.Location = new System.Drawing.Point(12, 99);
             this.lblNomUsuario.Name = "lblNomUsuario";
-            this.lblNomUsuario.Size = new System.Drawing.Size(98, 13);
+            this.lblNomUsuario.Size = new System.Drawing.Size(158, 21);
             this.lblNomUsuario.TabIndex = 0;
             this.lblNomUsuario.Text = "Nombre de Usuario";
             // 
             // txtEquipo
             // 
-            this.txtEquipo.Location = new System.Drawing.Point(183, 43);
+            this.txtEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.txtEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEquipo.Location = new System.Drawing.Point(184, 62);
             this.txtEquipo.Name = "txtEquipo";
-            this.txtEquipo.Size = new System.Drawing.Size(100, 20);
+            this.txtEquipo.Size = new System.Drawing.Size(203, 27);
             this.txtEquipo.TabIndex = 3;
             // 
             // lblEquipo
             // 
             this.lblEquipo.AutoSize = true;
-            this.lblEquipo.Location = new System.Drawing.Point(69, 46);
+            this.lblEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipo.Location = new System.Drawing.Point(102, 64);
             this.lblEquipo.Name = "lblEquipo";
-            this.lblEquipo.Size = new System.Drawing.Size(40, 13);
+            this.lblEquipo.Size = new System.Drawing.Size(64, 21);
             this.lblEquipo.TabIndex = 2;
             this.lblEquipo.Text = "Equipo";
             // 
-            // btnInvitar
+            // btnInvita
             // 
-            this.btnInvitar.Location = new System.Drawing.Point(353, 342);
-            this.btnInvitar.Name = "btnInvitar";
-            this.btnInvitar.Size = new System.Drawing.Size(75, 23);
-            this.btnInvitar.TabIndex = 4;
-            this.btnInvitar.Text = "Invitar";
-            this.btnInvitar.UseVisualStyleBackColor = true;
-            this.btnInvitar.Click += new System.EventHandler(this.btnInvitar_Click);
+            this.btnInvita.BackColor = System.Drawing.Color.LightGray;
+            this.btnInvita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInvita.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvita.Location = new System.Drawing.Point(106, 326);
+            this.btnInvita.Name = "btnInvita";
+            this.btnInvita.Size = new System.Drawing.Size(202, 45);
+            this.btnInvita.TabIndex = 65;
+            this.btnInvita.Text = "Invitar";
+            this.btnInvita.UseVisualStyleBackColor = false;
+            this.btnInvita.Click += new System.EventHandler(this.btnInvita_Click);
+            // 
+            // btnBusca
+            // 
+            this.btnBusca.BackColor = System.Drawing.Color.LightGray;
+            this.btnBusca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBusca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusca.Location = new System.Drawing.Point(241, 131);
+            this.btnBusca.Name = "btnBusca";
+            this.btnBusca.Size = new System.Drawing.Size(146, 45);
+            this.btnBusca.TabIndex = 66;
+            this.btnBusca.Text = "Buscar";
+            this.btnBusca.UseVisualStyleBackColor = false;
+            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.Black;
+            this.lblTitulo.Location = new System.Drawing.Point(75, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(253, 36);
+            this.lblTitulo.TabIndex = 76;
+            this.lblTitulo.Text = "INVITAR USUARIO";
             // 
             // frmInvitarUsuarioEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 413);
-            this.Controls.Add(this.btnInvitar);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
+            this.ClientSize = new System.Drawing.Size(432, 413);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.btnBusca);
+            this.Controls.Add(this.dgvUsuario);
+            this.Controls.Add(this.btnInvita);
             this.Controls.Add(this.txtEquipo);
+            this.Controls.Add(this.txtNomUsuario);
             this.Controls.Add(this.lblEquipo);
-            this.Controls.Add(this.gpbUsuarioInvitado);
+            this.Controls.Add(this.lblNomUsuario);
             this.Name = "frmInvitarUsuarioEquipo";
             this.Text = "frmInvitarUsuarioEquipo";
-            this.Load += new System.EventHandler(this.frmInvitarUsuarioEquipo_Load);
-            this.gpbUsuarioInvitado.ResumeLayout(false);
-            this.gpbUsuarioInvitado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,16 +151,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gpbUsuarioInvitado;
         private System.Windows.Forms.TextBox txtNomUsuario;
         private System.Windows.Forms.Label lblNomUsuario;
         private System.Windows.Forms.TextBox txtEquipo;
         private System.Windows.Forms.Label lblEquipo;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtUsuarioInvitado;
-        private System.Windows.Forms.Label lblUsuarioInvitado;
         private System.Windows.Forms.DataGridView dgvUsuario;
-        private System.Windows.Forms.Button btnInvitar;
+        private System.Windows.Forms.Button btnInvita;
+        private System.Windows.Forms.Button btnBusca;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

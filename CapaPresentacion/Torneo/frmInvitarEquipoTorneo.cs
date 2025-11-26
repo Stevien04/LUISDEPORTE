@@ -44,8 +44,8 @@ namespace CapaPresentacion
             {
                 txtNomEquipo.Enabled = false;
                 txtUsuario.Enabled = false;
-                btnBuscar.Enabled = false;
-                btnInvitar.Enabled = false;
+                btnBusca.Enabled = false;
+                btnInvita.Enabled = false;
             }
         }
 
@@ -56,7 +56,7 @@ namespace CapaPresentacion
 
             _idEquipoSeleccionado = 0;
             _nombreEquipoSeleccionado = string.Empty;
-            btnInvitar.Enabled = false;
+            btnInvita.Enabled = false;
 
             DataTable tabla = ObjGestionTorneos.mtdBuscarEquiposCN(filtroUsuario, filtroEquipo);
 
@@ -71,7 +71,23 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnInvitar_Click(object sender, EventArgs e)
+        private void dgvEquipo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.RowIndex >= dgvEquipo.Rows.Count)
+                return;
+
+            DataGridViewRow row = dgvEquipo.Rows[e.RowIndex];
+
+            if (row.Cells["IDEquipo"]?.Value == null)
+                return;
+
+            _idEquipoSeleccionado = Convert.ToInt32(row.Cells["IDEquipo"].Value);
+            _nombreEquipoSeleccionado = row.Cells["NombreEquipo"]?.Value?.ToString() ?? string.Empty;
+
+            btnInvita.Enabled = !SoloLectura;
+        }
+
+        private void btnInvita_Click(object sender, EventArgs e)
         {
             if (_idEquipoSeleccionado == 0)
             {
@@ -95,25 +111,9 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBusca_Click(object sender, EventArgs e)
         {
             CargarEquiposDisponibles();
-        }
-
-        private void dgvEquipo_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || e.RowIndex >= dgvEquipo.Rows.Count)
-                return;
-
-            DataGridViewRow row = dgvEquipo.Rows[e.RowIndex];
-
-            if (row.Cells["IDEquipo"]?.Value == null)
-                return;
-
-            _idEquipoSeleccionado = Convert.ToInt32(row.Cells["IDEquipo"].Value);
-            _nombreEquipoSeleccionado = row.Cells["NombreEquipo"]?.Value?.ToString() ?? string.Empty;
-
-            btnInvitar.Enabled = !SoloLectura;
         }
     }
 }

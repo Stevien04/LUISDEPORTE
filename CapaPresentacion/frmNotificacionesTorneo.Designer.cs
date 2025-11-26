@@ -39,7 +39,7 @@
             this.btnRechazar.BackColor = System.Drawing.Color.LightGray;
             this.btnRechazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRechazar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechazar.Location = new System.Drawing.Point(413, 191);
+            this.btnRechazar.Location = new System.Drawing.Point(413, 415);
             this.btnRechazar.Name = "btnRechazar";
             this.btnRechazar.Size = new System.Drawing.Size(122, 30);
             this.btnRechazar.TabIndex = 71;
@@ -52,7 +52,7 @@
             this.btnAceptar.BackColor = System.Drawing.Color.LightGray;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(541, 191);
+            this.btnAceptar.Location = new System.Drawing.Point(541, 415);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(122, 30);
             this.btnAceptar.TabIndex = 70;
@@ -65,12 +65,13 @@
             this.dgvNotificacionesTorneo.AllowUserToAddRows = false;
             this.dgvNotificacionesTorneo.AllowUserToDeleteRows = false;
             this.dgvNotificacionesTorneo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotificacionesTorneo.Location = new System.Drawing.Point(52, 35);
+            this.dgvNotificacionesTorneo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvNotificacionesTorneo.Location = new System.Drawing.Point(0, 0);
             this.dgvNotificacionesTorneo.MultiSelect = false;
             this.dgvNotificacionesTorneo.Name = "dgvNotificacionesTorneo";
             this.dgvNotificacionesTorneo.ReadOnly = true;
             this.dgvNotificacionesTorneo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNotificacionesTorneo.Size = new System.Drawing.Size(611, 150);
+            this.dgvNotificacionesTorneo.Size = new System.Drawing.Size(699, 353);
             this.dgvNotificacionesTorneo.TabIndex = 69;
             this.dgvNotificacionesTorneo.SelectionChanged += new System.EventHandler(this.dgvNotificacionesTorneo_SelectionChanged_1);
             // 
@@ -78,7 +79,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
+            this.ClientSize = new System.Drawing.Size(699, 522);
             this.Controls.Add(this.btnRechazar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvNotificacionesTorneo);

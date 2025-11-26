@@ -39,12 +39,13 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 73);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Size = new System.Drawing.Size(611, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(699, 399);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -53,7 +54,7 @@
             this.btnAceptar.BackColor = System.Drawing.Color.LightGray;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(553, 229);
+            this.btnAceptar.Location = new System.Drawing.Point(565, 426);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(122, 30);
             this.btnAceptar.TabIndex = 67;
@@ -66,7 +67,7 @@
             this.btnRechazar.BackColor = System.Drawing.Color.LightGray;
             this.btnRechazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRechazar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRechazar.Location = new System.Drawing.Point(425, 229);
+            this.btnRechazar.Location = new System.Drawing.Point(437, 426);
             this.btnRechazar.Name = "btnRechazar";
             this.btnRechazar.Size = new System.Drawing.Size(122, 30);
             this.btnRechazar.TabIndex = 68;
@@ -74,15 +75,16 @@
             this.btnRechazar.UseVisualStyleBackColor = false;
             this.btnRechazar.Click += new System.EventHandler(this.btnRechazar_Click_1);
             // 
-            // frmNoticaciones
+            // frmNoticacionesEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
+            this.ClientSize = new System.Drawing.Size(699, 522);
             this.Controls.Add(this.btnRechazar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmNoticaciones";
+            this.Name = "frmNoticacionesEquipo";
             this.Text = "frmNoticaciones";
             this.Load += new System.EventHandler(this.frmNoticaciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

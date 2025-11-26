@@ -86,13 +86,31 @@ namespace CapaDatos
             return respuesta;
         }
 
-        public bool mtdEliminarTorneoCD(int idTorneo, int idCreador)
+        public bool mtdEliminarTorneoCD(int idTorneo, int idCreador, out string mensajeError)
         {
             bool respuesta;
+            mensajeError = string.Empty;
 
             using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
             {
                 connection.Open();
+
+                string queryValidarEquipos = @"SELECT COUNT(*)
+                                               FROM TorneoEquipos
+                                               WHERE idTorneo = @IdTorneo";
+
+                using (SqlCommand cmdValidar = new SqlCommand(queryValidarEquipos, connection))
+                {
+                    cmdValidar.Parameters.AddWithValue("@IdTorneo", idTorneo);
+
+                    int cantidadEquipos = Convert.ToInt32(cmdValidar.ExecuteScalar());
+
+                    if (cantidadEquipos > 0)
+                    {
+                        mensajeError = "No se puede eliminar el torneo porque tiene equipos registrados.";
+                        return false;
+                    }
+                }
 
                 string queryEliminar = @"DELETE FROM tbTorneos
                                           WHERE IdTorneos = @IdTorneo AND IdCreador = @IdCreador";
@@ -106,8 +124,19 @@ namespace CapaDatos
                 }
             }
 
+            if (!respuesta && string.IsNullOrEmpty(mensajeError))
+            {
+                mensajeError = "No se pudo eliminar el torneo.";
+            }
+
             return respuesta;
         }
+
+        public bool mtdEliminarTorneoCD(int idTorneo, int idCreador)
+        {
+            return mtdEliminarTorneoCD(idTorneo, idCreador, out _);
+        }
+
 
         public DataTable mtdBuscarEquiposActivosCD(string filtroUsuario, string filtroEquipo)
         {
@@ -336,6 +365,127 @@ namespace CapaDatos
             }
 
             return respuesta;
+        }
+
+        public int mtdGenerarEnfrentamientosCD(int idTorneo)
+        {
+            int enfrentamientosCreados = 0;
+
+            using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        List<int> equipos = new List<int>();
+
+                        string queryEquipos = "SELECT idEquipo FROM TorneoEquipos WHERE idTorneo = @IdTorneo ORDER BY idEquipo";
+
+                        using (SqlCommand cmdEquipos = new SqlCommand(queryEquipos, connection, transaction))
+                        {
+                            cmdEquipos.Parameters.AddWithValue("@IdTorneo", idTorneo);
+
+                            using (SqlDataReader reader = cmdEquipos.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    equipos.Add(Convert.ToInt32(reader["idEquipo"]));
+                                }
+                            }
+                        }
+
+                        for (int i = 0; i < equipos.Count; i++)
+                        {
+                            for (int j = i + 1; j < equipos.Count; j++)
+                            {
+                                int equipo1 = equipos[i];
+                                int equipo2 = equipos[j];
+
+                                string queryExiste = @"SELECT COUNT(1)
+                                                        FROM tbEnfrentamientos
+                                                        WHERE IdTorneo = @IdTorneo
+                                                          AND ((IdEquipo1 = @IdEquipo1 AND IdEquipo2 = @IdEquipo2)
+                                                            OR (IdEquipo1 = @IdEquipo2 AND IdEquipo2 = @IdEquipo1))";
+
+                                bool existeEnfrentamiento = false;
+
+                                using (SqlCommand cmdExiste = new SqlCommand(queryExiste, connection, transaction))
+                                {
+                                    cmdExiste.Parameters.AddWithValue("@IdTorneo", idTorneo);
+                                    cmdExiste.Parameters.AddWithValue("@IdEquipo1", equipo1);
+                                    cmdExiste.Parameters.AddWithValue("@IdEquipo2", equipo2);
+
+                                    existeEnfrentamiento = Convert.ToInt32(cmdExiste.ExecuteScalar()) > 0;
+                                }
+
+                                if (!existeEnfrentamiento)
+                                {
+                                    string queryInsertar = @"INSERT INTO tbEnfrentamientos (IdTorneo, IdEquipo1, IdEquipo2, FechaProgramada, Estado, EstadoEncuentro)
+                                                            VALUES (@IdTorneo, @IdEquipo1, @IdEquipo2, NULL, 'Pendiente', 'Pendiente')";
+
+                                    using (SqlCommand cmdInsertar = new SqlCommand(queryInsertar, connection, transaction))
+                                    {
+                                        cmdInsertar.Parameters.AddWithValue("@IdTorneo", idTorneo);
+                                        cmdInsertar.Parameters.AddWithValue("@IdEquipo1", equipo1);
+                                        cmdInsertar.Parameters.AddWithValue("@IdEquipo2", equipo2);
+
+                                        enfrentamientosCreados += cmdInsertar.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            }
+
+            return enfrentamientosCreados;
+        }
+
+        public DataTable mtdListarEnfrentamientosPorTorneoCD(int idTorneo)
+        {
+            DataTable tbEnfrentamientos = new DataTable();
+
+            using (SqlConnection connection = clsConexion_CD.mtdObtenerConexion())
+            {
+                connection.Open();
+
+                string queryListar = @"SELECT e.IdEnfrentamiento,
+                                              e.IdEquipo1,
+                                              e.IdEquipo2,
+                                              eq1.NombreEquipo AS Equipo1,
+                                              eq2.NombreEquipo AS Equipo2,
+                                              e.MarcadorEquipo1,
+                                              e.MarcadorEquipo2,
+                                              e.FechaProgramada,
+                                              e.Estado,
+                                              e.EstadoEncuentro
+                                       FROM tbEnfrentamientos e
+                                       INNER JOIN tbEquipo eq1 ON e.IdEquipo1 = eq1.IDEquipo
+                                       INNER JOIN tbEquipo eq2 ON e.IdEquipo2 = eq2.IDEquipo
+                                       WHERE e.IdTorneo = @IdTorneo
+                                       ORDER BY e.FechaProgramada, e.IdEnfrentamiento";
+
+                using (SqlCommand cmd = new SqlCommand(queryListar, connection))
+                {
+                    cmd.Parameters.AddWithValue("@IdTorneo", idTorneo);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        tbEnfrentamientos.Load(reader);
+                    }
+                }
+            }
+
+            return tbEnfrentamientos;
         }
     }
 }

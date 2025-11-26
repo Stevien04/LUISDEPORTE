@@ -167,7 +167,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.imgWarningRed;
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.ImgTorneo;
             this.pictureBox1.Location = new System.Drawing.Point(15, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(109, 103);
@@ -179,6 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
             this.Controls.Add(this.btnIntegrantes);
             this.Controls.Add(this.btnInvitar);
             this.Controls.Add(this.label2);

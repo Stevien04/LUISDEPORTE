@@ -54,7 +54,7 @@
             this.txtNombreEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
             this.txtNombreEquipo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombreEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEquipo.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNombreEquipo.ForeColor = System.Drawing.Color.Black;
             this.txtNombreEquipo.Location = new System.Drawing.Point(230, 180);
             this.txtNombreEquipo.Name = "txtNombreEquipo";
             this.txtNombreEquipo.Size = new System.Drawing.Size(226, 27);
@@ -89,7 +89,7 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescripcion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.ForeColor = System.Drawing.Color.DimGray;
+            this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
             this.txtDescripcion.Location = new System.Drawing.Point(230, 225);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -112,7 +112,7 @@
             this.txtCreador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
             this.txtCreador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCreador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreador.ForeColor = System.Drawing.Color.DimGray;
+            this.txtCreador.ForeColor = System.Drawing.Color.Black;
             this.txtCreador.Location = new System.Drawing.Point(230, 131);
             this.txtCreador.Name = "txtCreador";
             this.txtCreador.ReadOnly = true;
@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(98)))), ((int)(((byte)(76)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
             this.ClientSize = new System.Drawing.Size(699, 522);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDescripcion);

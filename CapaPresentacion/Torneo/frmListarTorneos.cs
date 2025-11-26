@@ -173,7 +173,7 @@ namespace CapaPresentacion
                 if (respuesta != DialogResult.Yes)
                     return;
 
-                bool eliminado = ObjGestionTorneos.mtdEliminarTorneoCN(item.IDTorneo, _idUsuarioActual);
+                bool eliminado = ObjGestionTorneos.mtdEliminarTorneoCN(item.IDTorneo, _idUsuarioActual, out string mensajeError);
 
                 if (eliminado)
                 {
@@ -183,8 +183,12 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo eliminar el torneo.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string mensaje = string.IsNullOrWhiteSpace(mensajeError)
+                        ? "No se pudo eliminar el torneo."
+                        : mensajeError;
+
+                    MessageBox.Show(mensaje, "No se puede eliminar",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
                 }
             }
         }

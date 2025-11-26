@@ -30,19 +30,6 @@ namespace CapaPresentacion
             txtEquipo.Text = IDEquipo_.ToString();
         }
 
-        private void frmInvitarUsuarioEquipo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string NombreUsuario = txtNomUsuario.Text;
-            clsUsuario_CN ObjUsuario = new clsUsuario_CN();
-            dgvUsuario.DataSource = ObjUsuario.mtdBuscarUsuariosActivosCN(NombreUsuario, _idUsuarioActual);
-            dgvUsuario.Columns["IDUsuario"].Visible = false;
-        }
-
         private void dgvUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex >= dgvUsuario.Rows.Count)
@@ -52,12 +39,11 @@ namespace CapaPresentacion
 
             if (row.Cells["IDUsuario"]?.Value != null)
             {
-                txtUsuarioInvitado.Text = row.Cells["IDUsuario"].Value.ToString();
                 IDUsuarioInvitado = Convert.ToInt32(row.Cells["IDUsuario"].Value);
             }
         }
 
-        private void btnInvitar_Click(object sender, EventArgs e)
+        private void btnInvita_Click(object sender, EventArgs e)
         {
             if (IDUsuarioInvitado == 0)
             {
@@ -70,6 +56,14 @@ namespace CapaPresentacion
 
             MessageBox.Show("Invitación enviada correctamente.", "Invitación", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+        }
+
+        private void btnBusca_Click(object sender, EventArgs e)
+        {
+            string NombreUsuario = txtNomUsuario.Text;
+            clsUsuario_CN ObjUsuario = new clsUsuario_CN();
+            dgvUsuario.DataSource = ObjUsuario.mtdBuscarUsuariosActivosCN(NombreUsuario, _idUsuarioActual);
+            dgvUsuario.Columns["IDUsuario"].Visible = false;
         }
     }
 }

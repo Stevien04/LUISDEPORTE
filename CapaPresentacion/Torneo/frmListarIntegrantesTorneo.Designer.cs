@@ -34,10 +34,13 @@
             // 
             // dgvIntegrantesTorneo
             // 
+            this.dgvIntegrantesTorneo.AllowUserToAddRows = false;
+            this.dgvIntegrantesTorneo.AllowUserToDeleteRows = false;
             this.dgvIntegrantesTorneo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIntegrantesTorneo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvIntegrantesTorneo.Location = new System.Drawing.Point(0, 0);
             this.dgvIntegrantesTorneo.Name = "dgvIntegrantesTorneo";
+            this.dgvIntegrantesTorneo.ReadOnly = true;
             this.dgvIntegrantesTorneo.Size = new System.Drawing.Size(800, 450);
             this.dgvIntegrantesTorneo.TabIndex = 0;
             // 
@@ -45,6 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvIntegrantesTorneo);
             this.Name = "frmListarIntegrantesTorneo";

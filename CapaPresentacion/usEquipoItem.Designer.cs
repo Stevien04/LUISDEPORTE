@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblNombreEquipo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -40,8 +39,9 @@
             this.lblFechaModificacion = new System.Windows.Forms.Label();
             this.btnInvitar = new System.Windows.Forms.Button();
             this.btnIntegrantes = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreEquipo
@@ -55,20 +55,10 @@
             this.lblNombreEquipo.TabIndex = 1;
             this.lblNombreEquipo.Text = "NombreEquipo";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.imgWarningRed;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 103);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblDescripcion
             // 
             this.lblDescripcion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(3, 0);
+            this.lblDescripcion.Location = new System.Drawing.Point(0, 0);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(488, 70);
             this.lblDescripcion.TabIndex = 3;
@@ -175,11 +165,21 @@
             this.btnIntegrantes.UseVisualStyleBackColor = false;
             this.btnIntegrantes.Click += new System.EventHandler(this.btnIntegrantes_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.ImgTorneo;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // usEquipoItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(98)))), ((int)(((byte)(76)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(168)))), ((int)(((byte)(134)))));
             this.Controls.Add(this.btnIntegrantes);
             this.Controls.Add(this.btnInvitar);
             this.Controls.Add(this.label2);
@@ -193,8 +193,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "usEquipoItem";
             this.Size = new System.Drawing.Size(708, 223);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
