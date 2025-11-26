@@ -120,5 +120,12 @@ namespace CapaPresentacion
 
             mtdHideSubMenu();
         }
+
+        private void btnGenerarEnfrentamiento_Click(object sender, EventArgs e)
+        {
+            mtdAbrirFormulario(new frmCrearEnfrentamientos());
+
+            mtdHideSubMenu();
+        }
     }
 }

@@ -41,6 +41,7 @@
             this.btnTorneo = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.btnGenerarEnfrentamiento = new System.Windows.Forms.Button();
             this.pnlSideMenu.SuspendLayout();
             this.pnlEquipo.SuspendLayout();
             this.pnlTorneo.SuspendLayout();
@@ -68,7 +69,7 @@
             this.pnlEquipo.Controls.Add(this.btnListarEquipo);
             this.pnlEquipo.Controls.Add(this.btnCrearEquipo);
             this.pnlEquipo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEquipo.Location = new System.Drawing.Point(0, 339);
+            this.pnlEquipo.Location = new System.Drawing.Point(0, 391);
             this.pnlEquipo.Name = "pnlEquipo";
             this.pnlEquipo.Size = new System.Drawing.Size(219, 147);
             this.pnlEquipo.TabIndex = 1;
@@ -134,7 +135,7 @@
             this.btnEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEquipo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEquipo.ForeColor = System.Drawing.Color.Black;
-            this.btnEquipo.Location = new System.Drawing.Point(0, 294);
+            this.btnEquipo.Location = new System.Drawing.Point(0, 346);
             this.btnEquipo.Name = "btnEquipo";
             this.btnEquipo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEquipo.Size = new System.Drawing.Size(219, 45);
@@ -147,13 +148,14 @@
             // pnlTorneo
             // 
             this.pnlTorneo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(194)))), ((int)(((byte)(149)))));
+            this.pnlTorneo.Controls.Add(this.btnGenerarEnfrentamiento);
             this.pnlTorneo.Controls.Add(this.btnNotificacionesTorneo);
             this.pnlTorneo.Controls.Add(this.btnListarTorneos);
             this.pnlTorneo.Controls.Add(this.btnCrearTorneo);
             this.pnlTorneo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTorneo.Location = new System.Drawing.Point(0, 155);
             this.pnlTorneo.Name = "pnlTorneo";
-            this.pnlTorneo.Size = new System.Drawing.Size(219, 139);
+            this.pnlTorneo.Size = new System.Drawing.Size(219, 191);
             this.pnlTorneo.TabIndex = 1;
             // 
             // btnNotificacionesTorneo
@@ -244,6 +246,23 @@
             this.pnlContenedor.Size = new System.Drawing.Size(715, 561);
             this.pnlContenedor.TabIndex = 1;
             // 
+            // btnGenerarEnfrentamiento
+            // 
+            this.btnGenerarEnfrentamiento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGenerarEnfrentamiento.FlatAppearance.BorderSize = 0;
+            this.btnGenerarEnfrentamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarEnfrentamiento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarEnfrentamiento.ForeColor = System.Drawing.Color.Black;
+            this.btnGenerarEnfrentamiento.Location = new System.Drawing.Point(0, 120);
+            this.btnGenerarEnfrentamiento.Name = "btnGenerarEnfrentamiento";
+            this.btnGenerarEnfrentamiento.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnGenerarEnfrentamiento.Size = new System.Drawing.Size(219, 65);
+            this.btnGenerarEnfrentamiento.TabIndex = 4;
+            this.btnGenerarEnfrentamiento.Text = "Generar Enfrentamientos";
+            this.btnGenerarEnfrentamiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarEnfrentamiento.UseVisualStyleBackColor = true;
+            this.btnGenerarEnfrentamiento.Click += new System.EventHandler(this.btnGenerarEnfrentamiento_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +294,6 @@
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Button btnNotificacionesEquipo;
         private System.Windows.Forms.Button btnNotificacionesTorneo;
+        private System.Windows.Forms.Button btnGenerarEnfrentamiento;
     }
 }
